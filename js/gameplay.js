@@ -4,10 +4,14 @@ console.log('welcome to gameplay')
 // Player class
 class Player {
     constructor(name, gamePiece, bank, ownedProperties) {
-        this.name = '';
-        this.gamePiece '';
+        this.name = name;
+        this.gamePiece = gamePiece;
         this.bank = 1000;
         this.ownedProperties = [];
     }
-    
+
 }
+
+// create test player
+const playerTest = new Player('Sam', 'tophat')
+console.log(playerTest)
