@@ -206,3 +206,19 @@ const railroads = [
         name: 'King Street Station'
     }
 ]
+
+// Corners
+const corners = [
+    {
+        name: 'Go'
+    },
+    {
+        name: 'Jail'
+    },
+    {
+        name: 'Free Parking'
+    },
+    {
+        name: 'Go To Jail!'
+    }
+]
