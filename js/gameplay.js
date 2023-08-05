@@ -52,7 +52,7 @@ console.log(salinas)
 class Railroad extends GameSpace {
     constructor(name, spaceNum, groupColor, cost, rent1, rent2, rent3, rent4, spaceType, numInGroup, ownable) {
         super(name, spaceNum)
-        this.name = name + ' Railroad';
+        this.name = name;
         this.groupColor = 'white';
         this.cost = 100;
         this.rent1 = 20;
@@ -188,5 +188,21 @@ const properties = [
         groupColor: 'navy', 
         cost: 400,
         rent: 250,
+    }
+]
+
+// Railroads
+const railroads = [
+    {
+        name: 'Union Station'
+    },
+    {
+        name: 'Grand Central Station'
+    },
+    {
+        name: 'South Station'
+    },
+    {
+        name: 'King Street Station'
     }
 ]
