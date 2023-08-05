@@ -22,10 +22,8 @@ console.log(playerTest)
 
 // GameSpace class
 class GameSpace {
-    constructor(name, spaceType, spaceNum, ownable) {
+    constructor(name, spaceNum) {
         this.name = name;
-        this.spaceType = spaceType;
-        this.ownable = ownable;
         this.spaceNum = spaceNum;
         
 
@@ -38,12 +36,12 @@ class GameSpace {
 // extension for GameSpace -- Property
 class Property extends GameSpace {
     constructor(name, spaceNum, groupColor, cost, rent, rentAll, spaceType, numInGroup, ownable) {
-        super(name, spaceType, spaceNum, ownable)
+        super(name, spaceNum)
         this.groupColor = groupColor;
         this.cost = cost;
         this.rent = rent;
         this.rentAll = Math.ceil(this.rent * 1.25);
-        this.spaceType = 'Property'
+        this.spaceType = 'Property';
         this.numInGroup = 2;
         this.ownable = true;
     }
@@ -55,7 +53,7 @@ console.log(salinas)
 // extension for GameSpace -- Railroad
 class Railroad extends GameSpace {
     constructor(name, spaceNum, groupColor, cost, rent1, rent2, rent3, rent4, spaceType, numInGroup, ownable) {
-        super(name, spaceType, spaceNum, ownable)
+        super(name, spaceNum)
         this.name = name + ' Railroad';
         this.groupColor = 'white';
         this.cost = 100;
@@ -63,7 +61,7 @@ class Railroad extends GameSpace {
         this.rent2 = 40;
         this.rent3 = 80;
         this.rent4 = 160;
-        this.spaceType = 'Railroad'
+        this.spaceType = 'Railroad';
         this.numInGroup = 4;
         this.ownable = true;
     }
@@ -71,6 +69,18 @@ class Railroad extends GameSpace {
 // create test railroad
 const marina = new Railroad('Marina', 3)
 console.log(marina)
+
+// extension for GameSpace -- Corner
+class Corner extends GameSpace {
+    constructor(name, spaceNum, spaceType, ownable) {
+        super(name, spaceNum)
+        this.spaceType = 'Corner';
+        this.ownable = false;
+    }
+}
+// create test corner
+const go = new Corner('Go', 0)
+console.log(go)
 
 // Dice class
 class Dice {
