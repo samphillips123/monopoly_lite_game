@@ -3,6 +3,8 @@
 # Created by Samuel Phillips - August 2023
 # Presented v1.0 on ****
 
+# Hosted on Netlify: https://monopoly-lite.netlify.app/
+
 # MVP (minimum viable project)
 # - This will be set up with priority to desktop play (I didn't see a requirement to have it work on different devices)
 # - Set up a load screen where the users can read instructions, select their game pieces, and select "Start"
