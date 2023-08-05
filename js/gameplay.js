@@ -17,8 +17,8 @@ class Player {
     }
 }
 // create test player
-const playerTest = new Player('Sam', 'tophat')
-console.log(playerTest)
+// const playerTest = new Player('Sam', 'tophat')
+// console.log(playerTest)
 
 // GameSpace class
 class GameSpace {
@@ -45,8 +45,8 @@ class Property extends GameSpace {
     }
 }
 // create test property
-const salinas = new Property('salinas', 1, 'blue', 35, 15)
-console.log(salinas)
+// const salinas = new Property('salinas', 1, 'blue', 35, 15)
+// console.log(salinas)
 
 // extension for GameSpace -- Railroad
 class Railroad extends GameSpace {
@@ -65,8 +65,8 @@ class Railroad extends GameSpace {
     }
 }
 // create test railroad
-const marina = new Railroad('Marina', 3)
-console.log(marina)
+// const marina = new Railroad('Marina', 3)
+// console.log(marina)
 
 // extension for GameSpace -- Corner
 class Corner extends GameSpace {
@@ -77,8 +77,8 @@ class Corner extends GameSpace {
     }
 }
 // create test corner
-const go = new Corner('Go', 0)
-console.log(go)
+// const go = new Corner('Go', 0)
+// console.log(go)
 
 // Dice class
 class Dice {
@@ -87,8 +87,8 @@ class Dice {
     }
 }
 // create die
-const Dice1 = new Dice()
-console.log(Dice1)
+// const Dice1 = new Dice()
+// console.log(Dice1)
 
 // Arrays with objects for various GameSpace types -- to be used during for loop to create spaces
 // Properties
@@ -222,3 +222,15 @@ const corners = [
         name: 'Go To Jail!'
     }
 ]
+
+// define empty array to house all spaces
+let spaces = []
+console.log(spaces)
+// For loop to create all space names
+const spaceGen = (numSpaces) => {
+    for (let i = 0; i < numSpaces; i++) {
+        spaces[i] = new Property(properties[i].name, i, properties[i].groupColor, properties[i].cost, properties[i].rent)
+    }
+}
+spaceGen(properties.length)
+console.log(spaces)
