@@ -15,3 +15,16 @@ class Player {
 // create test player
 const playerTest = new Player('Sam', 'tophat')
 console.log(playerTest)
+
+// GameSpace class
+class GameSpace {
+    constructor(spaceType, ownable, spaceNum) {
+        this.spaceType = spaceType;
+        this.type = ownable;
+        this.spaceNum = spaceNum;
+    }
+}
+
+// create test GameSpace
+const gameSpaceTest = new GameSpace('property', true, 1)
+console.log(gameSpaceTest)
