@@ -65,6 +65,7 @@ const buySpace = (spaceNum, player) => {
             // change space ownedBy to player who bought
             spaces[spaceNum].ownedBy = player.name
             // push space name to players ownedSpaces array
+            player.ownedSpaces.push(spaces[spaceNum].name)
         }
     } else {
         console.log('user cannot invest')
@@ -325,5 +326,6 @@ let testNum = 5
 buySpace(testNum, playerTest)
 
 console.log(spaces[testNum])
+console.log(playerTest)
 
 // *********************************** GAME OBJECT **************************************
