@@ -234,33 +234,19 @@ const spaceGen = (numSpaces) => {
     for (let i = 0; i < numSpaces; i++) {
         // check if i equals the corner space # by splitting the numSpaces into 4
         if (i === 0 || i === numSpaces * 0.25 || i === numSpaces * 0.5 || i === numSpaces * 0.75) {
-            // loop through corners array with j but specifying spaceNum with i
-            // console.log('i = ' + i)
-            // for (let j = 0; j < corners.length; j++) {
-            //     console.log('i = ' + i + 'j = ' + j)
-            //     spaces[i] = new Corner(corners[j].name, i)
-            // }
-            // let j = 0
+            // create instance of corner using j index and i for space number
             spaces[i] = new Corner(corners[j].name, i)
-            j++
+            j++ // add 1 to j to itterate to next element in array
         // check if i equals the middle spaces by checking 8ths (1/8, 3/8, 5/8, 7/8)
         } else if (i === numSpaces * 0.125 || i === numSpaces * 0.375 || i === numSpaces * 0.625 || i === numSpaces * 0.875) {
-            // loop through railroads array with k but specifying spaceNum with i
-            // for (let k = 0; k < railroads.length; k++) {
-            //     spaces[i] = new Railroad(railroads[k].name, i)
-            // }
-            // let k = 0
+            // create instance of railroad using k index and i for space number
             spaces[i] = new Railroad(railroads[k].name, i)
-            k++
+            k++ // add 1 to k to itterate to next element in array
         } else {
             // all other spaces use the properties array.
-            // for (let l = 0; l < properties.length; l++) {
-            //     // loop through properties array with l but specifying spaceNum with i
-            //     spaces[i] = new Property(properties[l].name, i, properties[l].groupColor, properties[l].cost, properties[l].rent)   
-            // }
-            // let l = 0 
+            // create instance of property using l index and i for space number
             spaces[i] = new Property(properties[l].name, i, properties[l].groupColor, properties[l].cost, properties[l].rent)
-                l++
+            l++ // add 1 to l to itterate to next element in array
         }
     }
 }
