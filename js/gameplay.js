@@ -1,10 +1,13 @@
 console.log('welcome to gameplay')
-// Global funcitons
+// Global funcitons and variables
 // Function to create random number for die roll with min/max values set
 const randomDie = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 // console.log(randomDie(1,6))
+
+// Gameboard size
+const gameboardSize = 24
 
 // Set up objects and classes for players, gamepieces, dice, and board game spaces.
 // Player class
@@ -264,6 +267,6 @@ const spaceGen = (numSpaces) => {
     }
 }
 // Generate gameboard with 24 spaces
-spaceGen(24)
+spaceGen(gameboardSize)
 console.log(spaces)
 
