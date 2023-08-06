@@ -53,13 +53,22 @@ const investSpace = (spaceNum) => {
 }
 
 // ask user if they want to buy space funtion
-const buySpace = (spaceNum) => {
+const buySpace = (spaceNum, player) => {
     // check if user can invest in space
     if (investSpace(spaceNum) === true) {
         console.log('user can invest')
-        // check if space is already owned
+        let buyResponse = prompt(`Would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
+        console.log(buyResponse.toLowerCase())
+        if (buyResponse.toLowerCase() === 'yes') {
+            // change space owned to true
+            spaces[spaceNum].owned = true
+            // change space ownedBy to player who bought
+            spaces[spaceNum].ownedBy = player.name
+            // push space name to players ownedSpaces array
+        }
     } else {
         console.log('user cannot invest')
+        // need to end turn
     }
 
 }
@@ -71,11 +80,11 @@ const buySpace = (spaceNum) => {
 
 // Player class
 class Player {
-    constructor(name, gamePiece, bank, ownedProperties, currentSpace) {
+    constructor(name, gamePiece, bank, ownedSpaces, currentSpace) {
         this.name = name;
         this.gamePiece = gamePiece;
         this.bank = 1500;
-        this.ownedProperties = [];
+        this.ownedSpaces = [];
         this.currentSpace = 0;
     }
 }
@@ -312,7 +321,9 @@ console.log(spaces)
 // investSpace(2)
 let testNum = 5
 
-spaces[testNum].owned = 'true'
-buySpace(testNum)
+// spaces[testNum].owned = 'true'
+buySpace(testNum, playerTest)
+
+console.log(spaces[testNum])
 
 // *********************************** GAME OBJECT **************************************
