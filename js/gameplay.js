@@ -1,6 +1,8 @@
 console.log('welcome to gameplay')
-// Global funcitons and variables
-// Function to create random number for die roll with min/max values set
+
+// *************************** GLOBAL FUNCITONS AND VARIABLES ****************************
+
+// random number for die roll with min/max values set
 const randomDie = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -9,7 +11,7 @@ const randomDie = (min, max) => {
 // Gameboard size
 const gameboardSize = 24
 
-// define empty array to house all spaces
+// define empty array to house all spaces for spaceGen()
 let spaces = []
 let j = 0
 let k = 0
@@ -37,7 +39,33 @@ const spaceGen = (numSpaces) => {
     }
 }
 
-// Set up objects and classes for players, gamepieces, dice, and board game spaces.
+// check if space can be invested in -- to be used with buying and renting spaces
+let investTypes = ['Property', 'Railroad']
+// define invest vaiable with no data
+let invest = ''
+
+const investSpace = (spaceNum) => {
+    // check if space type is property or railroad -- user can invest in either
+    if (investTypes.includes(spaces[spaceNum].spaceType)) {
+        // console.log(spaces[spaceNum].spaceType)
+        invest = true
+    } else {
+        invest = false
+    }
+}
+
+// buy proerty funtion
+// const buySpace = () => {
+//     // check space type -- user can buy space if property or railroad
+//     investSpace()
+
+// }
+
+// charge rent when landing on owned property
+
+
+// ************************************* CLASSES ****************************************
+
 // Player class
 class Player {
     constructor(name, gamePiece, bank, ownedProperties, currentSpace) {
@@ -276,3 +304,9 @@ const corners = [
 // Generate gameboard with 24 spaces
 spaceGen(gameboardSize)
 console.log(spaces)
+// console.log(spaces[1].spaceType)
+
+investSpace(2)
+console.log(invest)
+
+// *********************************** GAME OBJECT **************************************
