@@ -41,25 +41,28 @@ const spaceGen = (numSpaces) => {
 
 // check if space can be invested in -- to be used with buying and renting spaces
 let investTypes = ['Property', 'Railroad']
-// define invest vaiable with no data
-let invest = ''
 
 const investSpace = (spaceNum) => {
-    // check if space type is property or railroad -- user can invest in either
-    if (investTypes.includes(spaces[spaceNum].spaceType)) {
+    // check if space type is property or railroad and that space is not currently owned -- user can invest if both are true
+    if ((investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false))) {
         // console.log(spaces[spaceNum].spaceType)
-        invest = true
+        return true
     } else {
-        invest = false
+        return false
     }
 }
 
-// buy proerty funtion
-// const buySpace = () => {
-//     // check space type -- user can buy space if property or railroad
-//     investSpace()
+// ask user if they want to buy space funtion
+const buySpace = (spaceNum) => {
+    // check if user can invest in space
+    if (investSpace(spaceNum) === true) {
+        console.log('user can invest')
+        // check if space is already owned
+    } else {
+        console.log('user cannot invest')
+    }
 
-// }
+}
 
 // charge rent when landing on owned property
 
@@ -306,7 +309,10 @@ spaceGen(gameboardSize)
 console.log(spaces)
 // console.log(spaces[1].spaceType)
 
-investSpace(2)
-console.log(invest)
+// investSpace(2)
+let testNum = 5
+
+spaces[testNum].owned = 'true'
+buySpace(testNum)
 
 // *********************************** GAME OBJECT **************************************
