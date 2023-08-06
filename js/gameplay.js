@@ -18,8 +18,8 @@ class Player {
     }
 }
 // create test player
-// const playerTest = new Player('Sam', 'tophat')
-// console.log(playerTest)
+const playerTest = new Player('Sam', 'tophat')
+console.log(playerTest)
 
 // GameSpace class
 class GameSpace {
@@ -88,10 +88,20 @@ class Dice {
     constructor(number) {
         this.number = randomDie(1, 6) // standard 6 sided die
     }
+    // method to roll die when clicked. This will be used by each player to dictate how many spaces to move.
+    rollDie(player) {
+        console.log(`${player.name} has rolled the die.`)
+        this.number = randomDie(1, 6)
+        // Add result of die roll to the space # for player
+        player.currentSpace += this.number
+    }
 }
 // create die
-// const Dice1 = new Dice()
-// console.log(Dice1)
+const dice1 = new Dice()
+console.log(dice1)
+dice1.rollDie(playerTest)
+console.log(dice1)
+console.log(playerTest)
 
 // Arrays with objects for various GameSpace types -- to be used during for loop to create spaces
 // Properties
@@ -231,7 +241,7 @@ let spaces = []
 let j = 0
 let k = 0
 let l = 0
-console.log(spaces)
+// console.log(spaces)
 // For loop to create all space names
 const spaceGen = (numSpaces) => {
     for (let i = 0; i < numSpaces; i++) {
@@ -256,3 +266,4 @@ const spaceGen = (numSpaces) => {
 // Generate gameboard with 24 spaces
 spaceGen(24)
 console.log(spaces)
+
