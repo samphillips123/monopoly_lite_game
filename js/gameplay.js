@@ -17,7 +17,7 @@ class Player {
         this.gamePiece = gamePiece;
         this.bank = 1500;
         this.ownedProperties = [];
-        this.currentSpace = 0;
+        this.currentSpace = 22;
     }
 }
 // create test player
@@ -95,15 +95,21 @@ class Dice {
     rollDie(player) {
         console.log(`${player.name} has rolled the die.`)
         this.number = randomDie(1, 6)
+        // if statement to check if die result + current space is greater than gameboardSize
+        if ((player.currentSpace + this.number) > (gameboardSize - 1)) { // (-1) is to convert to index number starting at 0
+            player.currentSpace = (player.currentSpace += this.number) - gameboardSize
+        } else {
         // Add result of die roll to the space # for player
         player.currentSpace += this.number
+        }
+        console.log(`${player.name} has moved ${this.number} spaces, landing on space # ${player.currentSpace}.`)
     }
 }
 // create die
 const dice1 = new Dice()
-console.log(dice1)
+console.log(`Initial die value: ${dice1.number}`)
 dice1.rollDie(playerTest)
-console.log(dice1)
+console.log(`Die value after roll: ${dice1.number}`)
 console.log(playerTest)
 
 // Arrays with objects for various GameSpace types -- to be used during for loop to create spaces
@@ -269,4 +275,5 @@ const spaceGen = (numSpaces) => {
 // Generate gameboard with 24 spaces
 spaceGen(gameboardSize)
 console.log(spaces)
+
 
