@@ -1,5 +1,6 @@
 console.log('welcome to gameplay')
 // Global funcitons
+// Function to create random number for die roll with min/max values set
 const randomDie = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -33,7 +34,7 @@ class GameSpace {
 
 // extension for GameSpace -- Property
 class Property extends GameSpace {
-    constructor(name, spaceNum, groupColor, cost, rent, rentAll, spaceType, numInGroup, ownable) {
+    constructor(name, spaceNum, groupColor, cost, rent, rentAll, spaceType, numInGroup, owned, ownedBy) {
         super(name, spaceNum)
         this.groupColor = groupColor;
         this.cost = cost;
@@ -41,7 +42,8 @@ class Property extends GameSpace {
         this.rentAll = Math.ceil(this.rent * 1.25);
         this.spaceType = 'Property';
         this.numInGroup = 2;
-        this.ownable = true;
+        this.owned = false;
+        this.ownedBy = '';
     }
 }
 // create test property
@@ -50,7 +52,7 @@ class Property extends GameSpace {
 
 // extension for GameSpace -- Railroad
 class Railroad extends GameSpace {
-    constructor(name, spaceNum, groupColor, cost, rent1, rent2, rent3, rent4, spaceType, numInGroup, ownable) {
+    constructor(name, spaceNum, groupColor, cost, rent1, rent2, rent3, rent4, spaceType, numInGroup, owned, ownedBy) {
         super(name, spaceNum)
         this.name = name;
         this.groupColor = 'white';
@@ -61,7 +63,8 @@ class Railroad extends GameSpace {
         this.rent4 = 160;
         this.spaceType = 'Railroad';
         this.numInGroup = 4;
-        this.ownable = true;
+        this.owned = false;
+        this.ownedBy = '';
     }
 }
 // create test railroad
@@ -250,6 +253,6 @@ const spaceGen = (numSpaces) => {
         }
     }
 }
-
+// Generate gameboard with 24 spaces
 spaceGen(24)
 console.log(spaces)
