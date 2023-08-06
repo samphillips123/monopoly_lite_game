@@ -9,6 +9,34 @@ const randomDie = (min, max) => {
 // Gameboard size
 const gameboardSize = 24
 
+// define empty array to house all spaces
+let spaces = []
+let j = 0
+let k = 0
+let l = 0
+// console.log(spaces)
+// For loop to create all space names
+const spaceGen = (numSpaces) => {
+    for (let i = 0; i < numSpaces; i++) {
+        // check if i equals the corner space # by splitting the numSpaces into 4
+        if (i === 0 || i === numSpaces * 0.25 || i === numSpaces * 0.5 || i === numSpaces * 0.75) {
+            // create instance of corner using j index and i for space number
+            spaces[i] = new Corner(corners[j].name, i)
+            j++ // add 1 to j to itterate to next element in array
+        // check if i equals the middle spaces by checking 8ths (1/8, 3/8, 5/8, 7/8)
+        } else if (i === numSpaces * 0.125 || i === numSpaces * 0.375 || i === numSpaces * 0.625 || i === numSpaces * 0.875) {
+            // create instance of railroad using k index and i for space number
+            spaces[i] = new Railroad(railroads[k].name, i)
+            k++ // add 1 to k to itterate to next element in array
+        } else {
+            // all other spaces use the properties array.
+            // create instance of property using l index and i for space number
+            spaces[i] = new Property(properties[l].name, i, properties[l].groupColor, properties[l].cost, properties[l].rent)
+            l++ // add 1 to l to itterate to next element in array
+        }
+    }
+}
+
 // Set up objects and classes for players, gamepieces, dice, and board game spaces.
 // Player class
 class Player {
@@ -17,12 +45,12 @@ class Player {
         this.gamePiece = gamePiece;
         this.bank = 1500;
         this.ownedProperties = [];
-        this.currentSpace = 22;
+        this.currentSpace = 0;
     }
 }
 // create test player
 const playerTest = new Player('Sam', 'tophat')
-console.log(playerTest)
+// console.log(playerTest)
 
 // GameSpace class
 class GameSpace {
@@ -107,10 +135,10 @@ class Dice {
 }
 // create die
 const dice1 = new Dice()
-console.log(`Initial die value: ${dice1.number}`)
-dice1.rollDie(playerTest)
-console.log(`Die value after roll: ${dice1.number}`)
-console.log(playerTest)
+// console.log(`Initial die value: ${dice1.number}`)
+// dice1.rollDie(playerTest)
+// console.log(`Die value after roll: ${dice1.number}`)
+// console.log(playerTest)
 
 // Arrays with objects for various GameSpace types -- to be used during for loop to create spaces
 // Properties
@@ -245,35 +273,6 @@ const corners = [
     }
 ]
 
-// define empty array to house all spaces
-let spaces = []
-let j = 0
-let k = 0
-let l = 0
-// console.log(spaces)
-// For loop to create all space names
-const spaceGen = (numSpaces) => {
-    for (let i = 0; i < numSpaces; i++) {
-        // check if i equals the corner space # by splitting the numSpaces into 4
-        if (i === 0 || i === numSpaces * 0.25 || i === numSpaces * 0.5 || i === numSpaces * 0.75) {
-            // create instance of corner using j index and i for space number
-            spaces[i] = new Corner(corners[j].name, i)
-            j++ // add 1 to j to itterate to next element in array
-        // check if i equals the middle spaces by checking 8ths (1/8, 3/8, 5/8, 7/8)
-        } else if (i === numSpaces * 0.125 || i === numSpaces * 0.375 || i === numSpaces * 0.625 || i === numSpaces * 0.875) {
-            // create instance of railroad using k index and i for space number
-            spaces[i] = new Railroad(railroads[k].name, i)
-            k++ // add 1 to k to itterate to next element in array
-        } else {
-            // all other spaces use the properties array.
-            // create instance of property using l index and i for space number
-            spaces[i] = new Property(properties[l].name, i, properties[l].groupColor, properties[l].cost, properties[l].rent)
-            l++ // add 1 to l to itterate to next element in array
-        }
-    }
-}
 // Generate gameboard with 24 spaces
 spaceGen(gameboardSize)
 console.log(spaces)
-
-
