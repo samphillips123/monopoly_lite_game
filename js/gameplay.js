@@ -59,7 +59,7 @@ let houseAccount = {
 
 // check if user has enough money
 const enoughMoney = (player, amount) => {
-    if ((player.bank - amount) > 0) {
+    if ((player.bank - amount) >= 0) {
         return true
     } else {
         return false
@@ -75,8 +75,8 @@ const transaction = (to, from, spaceNum, type) => {
 
 // ask user if they want to buy space funtion
 const buySpace = (spaceNum, player) => {
-    // check if user can invest in space
-    if (investSpace(spaceNum) === true) {
+    // check if user can invest in space and they have enough money
+    if ((investSpace(spaceNum) === true) && (enoughMoney(player, spaces[spaceNum].cost) === true)) {
         console.log('user can invest')
         let buyResponse = prompt(`Would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
         console.log(buyResponse.toLowerCase())
@@ -354,8 +354,10 @@ console.log(playerTest1)
 // console.log(houseAccount)
 // console.log(playerTest1)
 
-transaction(playerTest2, playerTest1, testNum, 'rent')
-console.log(playerTest1)
-console.log(playerTest2)
+// transaction(playerTest2, playerTest1, testNum, 'rent')
+// console.log(playerTest1)
+// console.log(playerTest2)
+
+// console.log(enoughMoney(playerTest1, 13))
 
 // *********************************** GAME OBJECT **************************************
