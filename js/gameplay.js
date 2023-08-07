@@ -52,14 +52,24 @@ const investSpace = (spaceNum) => {
     }
 }
 
-// transaction function to use if property is bought or rent is exhanged
+// houseAccount for when buying spaces.
 let houseAccount = {
     bank: ''
 }
 
+// check if user has enough money
+const enoughMoney = (player, amount) => {
+    if ((player.bank - amount) > 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+// transaction function to use if property is bought or rent is exhanged
 const transaction = (to, from, spaceNum, type) => {
     from.bank -= spaces[spaceNum][type]
-    console.log(spaces[spaceNum][type])
+    // console.log(spaces[spaceNum][type])
     to.bank += spaces[spaceNum][type]
 }
 
