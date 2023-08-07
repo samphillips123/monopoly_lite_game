@@ -52,6 +52,9 @@ const investSpace = (spaceNum) => {
     }
 }
 
+// // Buy or Rent
+// const buyOrRent = ()
+
 // houseAccount for when buying spaces.
 let houseAccount = {
     bank: ''
@@ -94,11 +97,23 @@ const buySpace = (spaceNum, player) => {
         console.log('user cannot invest')
         // need to end turn
     }
-
 }
 
 // charge rent when landing on owned property
-
+const chargeRent = (spaceNum, player) => {
+    // check if user cannot invest in space and space is owned by other player
+    if ((investSpace(spaceNum) === false) && (spaces[spaceNum].owned === true) && (spaces[spaceNum].ownedBy != player.name)) {
+        console.log('user owes rent')
+        // check if player has enough money to pay rent
+        if (enoughMoney(player, spaces[spaceNum], 'rent') === true) {
+            // call transaction() with owner of space and rent amount
+            transaction(spaces[spaceNum].ownedBy.toLowerCase(), player, spaceNum, 'rent')
+        } else {
+        console.log('user cannot afford rent')
+        // initiate GAME OVER
+        }
+    }
+}
 
 // ************************************* CLASSES ****************************************
 
@@ -113,9 +128,9 @@ class Player {
     }
 }
 // create test players
-const playerTest1 = new Player('Sam', 'tophat')
+const sam = new Player('Sam', 'tophat')
 // console.log(playerTest)
-const playerTest2 = new Player('Sused', 'shoe')
+const sused = new Player('Sused', 'shoe')
 
 // GameSpace class
 class GameSpace {
@@ -347,19 +362,24 @@ console.log(spaces)
 let testNum = 5
 
 // spaces[testNum].owned = 'true'
-buySpace(testNum, playerTest1)
+buySpace(testNum, sam)
 
 console.log(spaces[testNum])
-console.log(playerTest1)
+console.log(sam)
 
-// transaction(houseAccount, playerTest1, testNum, 'cost')
+// transaction(houseAccount, sam, testNum, 'cost')
 console.log(houseAccount)
-// console.log(playerTest1)
+// console.log(sam)
 
-// transaction(playerTest2, playerTest1, testNum, 'rent')
-// console.log(playerTest1)
-// console.log(playerTest2)
+// transaction(sused, sam, testNum, 'rent')
+// console.log(sam)
+console.log(sused)
 
-// console.log(enoughMoney(playerTest1, 13))
+// console.log(enoughMoney(sam, 13))
+
+chargeRent(testNum, sused)
+console.log(sam)
+console.log(sused)
+
 
 // *********************************** GAME OBJECT **************************************
