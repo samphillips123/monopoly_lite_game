@@ -52,6 +52,17 @@ const investSpace = (spaceNum) => {
     }
 }
 
+// transaction function to use if property is bought or rent is exhanged
+let houseAccount = {
+    bank: ''
+}
+
+const transaction = (to, from, spaceNum, type) => {
+    from.bank -= spaces[spaceNum][type]
+    console.log(spaces[spaceNum][type])
+    to.bank += spaces[spaceNum][type]
+}
+
 // ask user if they want to buy space funtion
 const buySpace = (spaceNum, player) => {
     // check if user can invest in space
@@ -89,9 +100,10 @@ class Player {
         this.currentSpace = 0;
     }
 }
-// create test player
-const playerTest = new Player('Sam', 'tophat')
+// create test players
+const playerTest1 = new Player('Sam', 'tophat')
 // console.log(playerTest)
+const playerTest2 = new Player('Sused', 'shoe')
 
 // GameSpace class
 class GameSpace {
@@ -323,9 +335,17 @@ console.log(spaces)
 let testNum = 5
 
 // spaces[testNum].owned = 'true'
-buySpace(testNum, playerTest)
+buySpace(testNum, playerTest1)
 
 console.log(spaces[testNum])
-console.log(playerTest)
+console.log(playerTest1)
+
+// transaction(houseAccount, playerTest1, testNum, 'cost')
+// console.log(houseAccount)
+// console.log(playerTest1)
+
+transaction(playerTest2, playerTest1, testNum, 'rent')
+console.log(playerTest1)
+console.log(playerTest2)
 
 // *********************************** GAME OBJECT **************************************
