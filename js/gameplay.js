@@ -81,6 +81,8 @@ const buySpace = (spaceNum, player) => {
         let buyResponse = prompt(`Would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
         console.log(buyResponse.toLowerCase())
         if (buyResponse.toLowerCase() === 'yes') {
+            // initiate transaction
+            transaction(houseAccount, player, spaceNum, 'cost')
             // change space owned to true
             spaces[spaceNum].owned = true
             // change space ownedBy to player who bought
@@ -351,7 +353,7 @@ console.log(spaces[testNum])
 console.log(playerTest1)
 
 // transaction(houseAccount, playerTest1, testNum, 'cost')
-// console.log(houseAccount)
+console.log(houseAccount)
 // console.log(playerTest1)
 
 // transaction(playerTest2, playerTest1, testNum, 'rent')
