@@ -171,12 +171,13 @@ const spaceAction = (spaceNum, player) => {
 
 // Player class
 class Player {
-    constructor(name, gamePiece, bank, ownedSpaces, currentSpace) {
+    constructor(name, gamePiece, bank, ownedSpaces, currentSpace, inJail) {
         this.name = name;
         this.gamePiece = gamePiece;
         this.bank = 1500;
         this.ownedSpaces = [];
         this.currentSpace = 0;
+        this.inJail = false;
     }
 }
 // create test players
@@ -449,33 +450,9 @@ console.log(sused)
 
 dice1.rollDie(sused)
 
-// console.log(spaces[testNum])
 console.log(sam)
 console.log(sused)
 
-dice1.rollDie(sam)
-
-// console.log(spaces[testNum])
-console.log(sam)
-console.log(sused)
-
-dice1.rollDie(sused)
-
-// console.log(spaces[testNum])
-console.log(sam)
-console.log(sused)
-
-dice1.rollDie(sam)
-
-// console.log(spaces[testNum])
-console.log(sam)
-console.log(sused)
-
-dice1.rollDie(sused)
-
-// console.log(spaces[testNum])
-console.log(sam)
-console.log(sused)
 
 
 
