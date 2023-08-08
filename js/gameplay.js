@@ -76,7 +76,7 @@ const buySpace = (spaceNum, player) => {
     // check if user can invest in space and they have enough money
     if ((investSpace(spaceNum) === true) && (enoughMoney(player, spaces[spaceNum].cost) === true)) {
         console.log('user can invest')
-        let buyResponse = prompt(`Would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
+        let buyResponse = prompt(`${player.name}, would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
         // console.log(buyResponse.toLowerCase())
         if (buyResponse.toLowerCase() === 'yes') {
             // initiate transaction
@@ -172,14 +172,7 @@ const spaceAction = (spaceNum, player) => {
     }
 }
 
-// switch between players
-const otherPlayer = (player) => {
-    if (player === player1) {
-        currentPlayer = player2
-    } else if (player === player2) {
-        currentPlayer = player1
-    }
-}
+
 
 // ************************************* CLASSES ****************************************
 
@@ -477,12 +470,34 @@ let testNum = 5
 // store currentPlayer -- Start with player1
 let currentPlayer = player1
 
-// // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
-// const gamePlay = (player) => {
-//     while (player.bank >= 0) {
-//         if (player.inJail === true) {
-//             console.log(`${player.name} is in jail. Turn skipped.`)
-//             currentPlayer = otherPlayer(player)
-//         }
-//     }
-// }
+// switch between players
+const otherPlayer = (player) => {
+    if (player === player1) {
+        currentPlayer = player2
+    } else if (player === player2) {
+        currentPlayer = player1
+    }
+}
+
+// Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
+const gamePlay = () => {
+    while (currentPlayer.bank >= 0) {
+        if (currentPlayer.inJail === true) {
+            console.log(`${currentPlayer.name} is in jail. Turn skipped.`)
+            // if player is in jail, they are skipped for 1 turn
+            otherPlayer(currentPlayer)
+            // swith .inJail back to false so they can play next turn
+            currentPlayer.inJail = false
+        } else {
+            dice1.rollDie(currentPlayer)
+            // after turn is over, swith currentPlayer
+            otherPlayer(currentPlayer)
+            console.log(currentPlayer)
+        }
+        console.log(`${player1.name} is on space ${player1.currentSpace}, ${player2.name} is on space ${player2.currentSpace}`)
+    }
+}
+
+gamePlay()
+
+// console.log(currentPlayer)
