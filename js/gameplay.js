@@ -77,7 +77,7 @@ const buySpace = (spaceNum, player) => {
     if ((investSpace(spaceNum) === true) && (enoughMoney(player, spaces[spaceNum].cost) === true)) {
         console.log('user can invest')
         let buyResponse = prompt(`Would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
-        console.log(buyResponse.toLowerCase())
+        // console.log(buyResponse.toLowerCase())
         if (buyResponse.toLowerCase() === 'yes') {
             // initiate transaction
             transaction(houseAccount, player, spaceNum, 'cost')
@@ -97,7 +97,7 @@ const buySpace = (spaceNum, player) => {
 // charge rent when landing on owned property
 const chargeRent = (spaceNum, player) => {
     // check if user cannot invest in space and space is owned by other player
-    if ((investSpace(spaceNum) === false) && (spaces[spaceNum].owned === true) && (spaces[spaceNum].ownedBy != player.name)) {
+    if ((investSpace(spaceNum) === false) && (spaces[spaceNum].owned === true) && (spaces[spaceNum].ownedBy.name != player.name)) {
         console.log('user owes rent')
         // check if player has enough money to pay rent
         if (enoughMoney(player, spaces[spaceNum].rent) === true) {
@@ -159,6 +159,7 @@ const spaceAction = (spaceNum, player) => {
         console.log(spaceStatus)
         // call chargeRent()
         chargeRent(spaceNum, player)
+        console.log(player)
     } else {
         spaceStatus = 'rest'
         console.log(spaceStatus)
@@ -262,6 +263,8 @@ class Dice {
         player.currentSpace += this.number
         }
         console.log(`${player.name} has moved ${this.number} spaces, landing on space # ${player.currentSpace}.`)
+        // call spaceAction()
+        spaceAction(player.currentSpace, player)
     }
 }
 // create die
@@ -410,21 +413,21 @@ console.log(spaces)
 // console.log(spaces[1].spaceType)
 
 // investSpace(2)
-let testNum = 0
+let testNum = 5
 
 // spaces[testNum].owned = 'true'
-buySpace(testNum, sam)
+// buySpace(testNum, sused)
 
-console.log(spaces[testNum])
-console.log(sam)
+// console.log(spaces[testNum])
+// console.log(sam)
 
 // transaction(houseAccount, sam, testNum, 'cost')
 // console.log(houseAccount)
 // console.log(sam)
 
 // transaction(sused, sam, testNum, 'rent')
-// console.log(sam)
-// console.log(sused)
+console.log(sam)
+console.log(sused)
 
 // console.log(enoughMoney(sam, 13))
 
@@ -432,11 +435,47 @@ console.log(sam)
 // console.log(sam.bank)
 // console.log(sused)
 
-spaceAction(testNum)
+// spaceAction(testNum, sam)
 
 // goToJail(sam)
 // passGo(sused)
 // console.log(sused)
+
+dice1.rollDie(sam)
+
+// console.log(spaces[testNum])
+console.log(sam)
+console.log(sused)
+
+dice1.rollDie(sused)
+
+// console.log(spaces[testNum])
+console.log(sam)
+console.log(sused)
+
+dice1.rollDie(sam)
+
+// console.log(spaces[testNum])
+console.log(sam)
+console.log(sused)
+
+dice1.rollDie(sused)
+
+// console.log(spaces[testNum])
+console.log(sam)
+console.log(sused)
+
+dice1.rollDie(sam)
+
+// console.log(spaces[testNum])
+console.log(sam)
+console.log(sused)
+
+dice1.rollDie(sused)
+
+// console.log(spaces[testNum])
+console.log(sam)
+console.log(sused)
 
 
 
