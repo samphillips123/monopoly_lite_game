@@ -89,7 +89,7 @@ const buySpace = (spaceNum, player) => {
             // change space owned to true
             spaces[spaceNum].owned = true
             // change space ownedBy to player who bought
-            spaces[spaceNum].ownedBy = player.name
+            spaces[spaceNum].ownedBy = player
             // push space name to players ownedSpaces array
             player.ownedSpaces.push(spaces[spaceNum].name)
         }
@@ -105,9 +105,11 @@ const chargeRent = (spaceNum, player) => {
     if ((investSpace(spaceNum) === false) && (spaces[spaceNum].owned === true) && (spaces[spaceNum].ownedBy != player.name)) {
         console.log('user owes rent')
         // check if player has enough money to pay rent
-        if (enoughMoney(player, spaces[spaceNum], 'rent') === true) {
+        if (enoughMoney(player, spaces[spaceNum].rent) === true) {
+            // initialize owner as the user who owns the space
+            let owner = spaces[spaceNum].ownedBy
             // call transaction() with owner of space and rent amount
-            transaction(spaces[spaceNum].ownedBy.toLowerCase(), player, spaceNum, 'rent')
+            transaction(owner, player, spaceNum, 'rent')
         } else {
         console.log('user cannot afford rent')
         // initiate GAME OVER
@@ -378,7 +380,7 @@ console.log(sused)
 // console.log(enoughMoney(sam, 13))
 
 chargeRent(testNum, sused)
-console.log(sam)
+console.log(sam.bank)
 console.log(sused)
 
 
