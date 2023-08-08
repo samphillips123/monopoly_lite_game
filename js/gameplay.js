@@ -8,6 +8,9 @@ const randomDie = (min, max) => {
 }
 // console.log(randomDie(1,6))
 
+// store currentPlayer
+let currentPlayer = ''
+
 // Gameboard size
 const gameboardSize = 24
 
@@ -116,6 +119,8 @@ const chargeRent = (spaceNum, player) => {
 const goToJail = (player) => {
     // jail is the 1st corner that's why it's the size / 4
     player.currentSpace = spaces[gameboardSize / 4].spaceNum
+    // change player.inJail to true
+    player.inJail = true
     console.log(`${player.name} was sent to ${spaces[gameboardSize / 4].name}`)
 }
 
@@ -138,10 +143,13 @@ const spaceAction = (spaceNum, player) => {
         // call goToJail()
         goToJail(player)
         console.log(player)
-    }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail')) {
+    }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail') && (player.inJail === true)) {
         spaceStatus = 'in jail'
         console.log(spaceStatus)
         // end turn **** need to set up skip turn function ****
+    }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail') && (player.inJail === false)) {
+        spaceStatus = 'visit jail'
+        console.log(spaceStatus)
     } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
             spaceStatus = 'go'
             console.log(spaceStatus)
@@ -457,3 +465,8 @@ console.log(sused)
 
 
 // *********************************** GAME OBJECT **************************************
+
+// // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
+// const gamePlay = (player) => {
+//     while (player.bank)
+// }
