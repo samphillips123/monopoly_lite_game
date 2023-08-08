@@ -490,9 +490,12 @@ const gamePlay = () => {
             dice1.rollDie(currentPlayer)
             // after turn is over, swith currentPlayer
             otherPlayer(currentPlayer)
-            console.log(currentPlayer)
         }
         console.log(`${player1.name} is on space ${player1.currentSpace}, ${player2.name} is on space ${player2.currentSpace}`)
+        console.log(`${player1.name}`)
+        console.log(player1.ownedSpaces)
+        console.log(`${player2.name}`)
+        console.log(player2.ownedSpaces)
     }
 }
 
