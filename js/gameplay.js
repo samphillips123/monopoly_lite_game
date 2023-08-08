@@ -75,7 +75,7 @@ const transaction = (to, from, spaceNum, type) => {
 const buySpace = (spaceNum, player) => {
     // check if user can invest in space and they have enough money
     if ((investSpace(spaceNum) === true) && (enoughMoney(player, spaces[spaceNum].cost) === true)) {
-        console.log('user can invest')
+        // console.log('user can invest')
         let buyResponse = prompt(`${player.name}, would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
         // console.log(buyResponse.toLowerCase())
         if (buyResponse.toLowerCase() === 'yes') {
@@ -89,7 +89,7 @@ const buySpace = (spaceNum, player) => {
             player.ownedSpaces.push(spaces[spaceNum].name)
         }
     } else {
-        console.log('user cannot invest')
+        console.log(`${player.name} cannot invest`)
         // need to end turn
     }
 }
@@ -98,7 +98,7 @@ const buySpace = (spaceNum, player) => {
 const chargeRent = (spaceNum, player) => {
     // check if user cannot invest in space and space is owned by other player
     if ((investSpace(spaceNum) === false) && (spaces[spaceNum].owned === true) && (spaces[spaceNum].ownedBy.name != player.name)) {
-        console.log('user owes rent')
+        console.log(`${player.name} owes rent`)
         // check if player has enough money to pay rent
         if (enoughMoney(player, spaces[spaceNum].rent) === true) {
             // initialize owner as the user who owns the space
@@ -106,7 +106,7 @@ const chargeRent = (spaceNum, player) => {
             // call transaction() with owner of space and rent amount
             transaction(owner, player, spaceNum, 'rent')
         } else {
-        console.log('user cannot afford rent')
+        console.log(`${player.name} cannot afford rent`)
         // initiate GAME OVER
         }
     }
@@ -139,11 +139,10 @@ const spaceAction = (spaceNum, player) => {
         console.log(spaceStatus)
         // call goToJail()
         goToJail(player)
-        console.log(player)
+        // console.log(player)
     }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail') && (player.inJail === true)) {
         spaceStatus = 'in jail'
         console.log(spaceStatus)
-        // end turn **** need to set up skip turn function ****
     }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail') && (player.inJail === false)) {
         spaceStatus = 'visit jail'
         console.log(spaceStatus)
@@ -152,23 +151,22 @@ const spaceAction = (spaceNum, player) => {
             console.log(spaceStatus)
             // call passGo()
             passGo(player)
-            console.log(player)
+            // console.log(player)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
         spaceStatus = 'buy'
         console.log(spaceStatus)
         // call buySpace()
         buySpace(spaceNum, player)
-        console.log(player)
+        // console.log(player)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === true)) {
         spaceStatus = 'rent'
         console.log(spaceStatus)
         // call chargeRent()
         chargeRent(spaceNum, player)
-        console.log(player)
+        // console.log(player)
     } else {
         spaceStatus = 'rest'
         console.log(spaceStatus)
-        // end turn **** do I need an end turn function? ****
     }
 }
 
@@ -228,7 +226,7 @@ class Railroad extends GameSpace {
         this.name = name;
         this.groupColor = 'white';
         this.cost = 100;
-        this.rent1 = 20;
+        this.rent = 20;
         this.rent2 = 40;
         this.rent3 = 80;
         this.rent4 = 160;
