@@ -39,9 +39,24 @@ const spaceGen = (numSpaces) => {
     }
 }
 
-// check if space can be invested in -- to be used with buying and renting spaces
+// space action -- buy, rent, stay, jail, start....
+let spaceStatus = ''
 let investTypes = ['Property', 'Railroad']
 
+const spaceAction = (spaceNum) => {
+    if (spaces[spaceNum].type === 'Corner') {
+        spaceStatus = 'allowance, jail, or nothing'
+        console.log(spaceStatus)
+    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
+        spaceStatus = 'buy'
+        console.log(spaceStatus)
+    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === true)) {
+        spaceStatus = 'rent'
+        console.log(spaceStatus)
+    }
+}
+
+// check if space can be invested in -- to be used with buying and renting spaces
 const investSpace = (spaceNum) => {
     // check if space type is property or railroad and that space is not currently owned -- user can invest if both are true
     if ((investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false))) {
@@ -51,9 +66,6 @@ const investSpace = (spaceNum) => {
         return false
     }
 }
-
-// // Buy or Rent
-// const buyOrRent = ()
 
 // houseAccount for when buying spaces.
 let houseAccount = {
