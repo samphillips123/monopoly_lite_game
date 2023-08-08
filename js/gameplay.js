@@ -498,8 +498,8 @@ const gamePlay = () => {
         // console.log(player1.ownedSpaces)
         // console.log(`${player2.name}`)
         // console.log(player2.ownedSpaces)
-        console.log(playerStats.player1)
-        console.log(playerStats.player2)
+        // console.log(playerStats.player1)
+        // console.log(playerStats.player2)
     }
     console.log(`GAME OVER`)
 }
