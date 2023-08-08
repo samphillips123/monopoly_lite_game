@@ -484,10 +484,10 @@ const gamePlay = () => {
     while (currentPlayer.bank >= 0) {
         if (currentPlayer.inJail === true) {
             console.log(`${currentPlayer.name} is in jail. Turn skipped.`)
-            // if player is in jail, they are skipped for 1 turn
-            otherPlayer(currentPlayer)
             // swith .inJail back to false so they can play next turn
             currentPlayer.inJail = false
+            // if player is in jail, they are skipped for 1 turn
+            otherPlayer(currentPlayer)
         } else {
             dice1.rollDie(currentPlayer)
             // after turn is over, swith currentPlayer
