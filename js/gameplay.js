@@ -172,6 +172,15 @@ const spaceAction = (spaceNum, player) => {
     }
 }
 
+// switch between players
+const otherPlayer = (player) => {
+    if (player === player1) {
+        currentPlayer = player2
+    } else if (player === player2) {
+        currentPlayer = player1
+    }
+}
+
 // ************************************* CLASSES ****************************************
 
 // Player class
@@ -432,8 +441,8 @@ let testNum = 5
 // console.log(player1)
 
 // transaction(player2, player1, testNum, 'rent')
-console.log(player1)
-console.log(player2)
+// console.log(player1)
+// console.log(player2)
 
 // console.log(enoughMoney(player1, 13))
 
@@ -447,18 +456,19 @@ console.log(player2)
 // passGo(player2)
 // console.log(player2)
 
-dice1.rollDie(player1)
+// dice1.rollDie(player1)
 
 // console.log(spaces[testNum])
-console.log(player1)
-console.log(player2)
+// console.log(player1)
+// console.log(player2)
 
-dice1.rollDie(player2)
+// dice1.rollDie(player2)
 
-console.log(player1)
-console.log(player2)
+// console.log(player1)
+// console.log(player2)
 
-
+// console.log(currentPlayer)
+// otherPlayer(currentPlayer)
 
 
 // *********************************** GAME OBJECT **************************************
@@ -467,9 +477,12 @@ console.log(player2)
 // store currentPlayer -- Start with player1
 let currentPlayer = player1
 
-// Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
-const gamePlay = (player) => {
-    while (player.bank >= 0) {
-
-    }
-}
+// // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
+// const gamePlay = (player) => {
+//     while (player.bank >= 0) {
+//         if (player.inJail === true) {
+//             console.log(`${player.name} is in jail. Turn skipped.`)
+//             currentPlayer = otherPlayer(player)
+//         }
+//     }
+// }
