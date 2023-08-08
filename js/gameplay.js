@@ -44,7 +44,7 @@ let spaceStatus = ''
 let investTypes = ['Property', 'Railroad']
 
 const spaceAction = (spaceNum) => {
-    if (spaces[spaceNum].type === 'Corner') {
+    if (spaces[spaceNum].spaceType === 'Corner') {
         spaceStatus = 'allowance, jail, or nothing'
         console.log(spaceStatus)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
@@ -127,6 +127,13 @@ const chargeRent = (spaceNum, player) => {
         // initiate GAME OVER
         }
     }
+}
+
+// go to jail function
+const goToJail = (player) => {
+    // jail is the 1st corner that's why it's the size / 4
+    player.currentSpace = spaces[gameboardSize / 4].spaceNum
+    console.log(`${player.name} was sent to ${spaces[gameboardSize / 4].name}`)
 }
 
 // ************************************* CLASSES ****************************************
@@ -373,7 +380,7 @@ console.log(spaces)
 // console.log(spaces[1].spaceType)
 
 // investSpace(2)
-let testNum = 5
+let testNum = 0
 
 // spaces[testNum].owned = 'true'
 buySpace(testNum, sam)
@@ -382,18 +389,24 @@ console.log(spaces[testNum])
 console.log(sam)
 
 // transaction(houseAccount, sam, testNum, 'cost')
-console.log(houseAccount)
+// console.log(houseAccount)
 // console.log(sam)
 
 // transaction(sused, sam, testNum, 'rent')
 // console.log(sam)
-console.log(sused)
+// console.log(sused)
 
 // console.log(enoughMoney(sam, 13))
 
-chargeRent(testNum, sused)
-console.log(sam.bank)
-console.log(sused)
+// chargeRent(testNum, sused)
+// console.log(sam.bank)
+// console.log(sused)
+
+spaceAction(testNum)
+
+goToJail(sam)
+console.log(sam)
+
 
 
 // *********************************** GAME OBJECT **************************************
