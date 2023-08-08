@@ -8,9 +8,6 @@ const randomDie = (min, max) => {
 }
 // console.log(randomDie(1,6))
 
-// store currentPlayer
-let currentPlayer = ''
-
 // Gameboard size
 const gameboardSize = 24
 
@@ -188,10 +185,10 @@ class Player {
         this.inJail = false;
     }
 }
-// create test players
-const sam = new Player('Sam', 'tophat')
+// create players
+const player1 = new Player('Sam', 'tophat')
 // console.log(playerTest)
-const sused = new Player('Sused', 'shoe')
+const player2 = new Player('Sused', 'shoe')
 
 // GameSpace class
 class GameSpace {
@@ -425,48 +422,54 @@ console.log(spaces)
 let testNum = 5
 
 // spaces[testNum].owned = 'true'
-// buySpace(testNum, sused)
+// buySpace(testNum, player2)
 
 // console.log(spaces[testNum])
-// console.log(sam)
+// console.log(player1)
 
-// transaction(houseAccount, sam, testNum, 'cost')
+// transaction(houseAccount, player1, testNum, 'cost')
 // console.log(houseAccount)
-// console.log(sam)
+// console.log(player1)
 
-// transaction(sused, sam, testNum, 'rent')
-console.log(sam)
-console.log(sused)
+// transaction(player2, player1, testNum, 'rent')
+console.log(player1)
+console.log(player2)
 
-// console.log(enoughMoney(sam, 13))
+// console.log(enoughMoney(player1, 13))
 
-// chargeRent(testNum, sused)
-// console.log(sam.bank)
-// console.log(sused)
+// chargeRent(testNum, player2)
+// console.log(player1.bank)
+// console.log(player2)
 
-// spaceAction(testNum, sam)
+// spaceAction(testNum, player1)
 
-// goToJail(sam)
-// passGo(sused)
-// console.log(sused)
+// goToJail(player1)
+// passGo(player2)
+// console.log(player2)
 
-dice1.rollDie(sam)
+dice1.rollDie(player1)
 
 // console.log(spaces[testNum])
-console.log(sam)
-console.log(sused)
+console.log(player1)
+console.log(player2)
 
-dice1.rollDie(sused)
+dice1.rollDie(player2)
 
-console.log(sam)
-console.log(sused)
+console.log(player1)
+console.log(player2)
 
 
 
 
 // *********************************** GAME OBJECT **************************************
 
-// // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
-// const gamePlay = (player) => {
-//     while (player.bank)
-// }
+
+// store currentPlayer -- Start with player1
+let currentPlayer = player1
+
+// Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
+const gamePlay = (player) => {
+    while (player.bank >= 0) {
+
+    }
+}
