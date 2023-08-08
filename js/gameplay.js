@@ -421,7 +421,7 @@ console.log(spaces)
 // console.log(spaces[1].spaceType)
 
 // investSpace(2)
-let testNum = 5
+// let testNum = 5
 
 // spaces[testNum].owned = 'true'
 // buySpace(testNum, player2)
@@ -493,15 +493,33 @@ const gamePlay = () => {
             // after turn is over, swith currentPlayer
             otherPlayer(currentPlayer)
         }
-        console.log(`${player1.name} is on space ${player1.currentSpace}, ${player2.name} is on space ${player2.currentSpace}`)
-        console.log(`${player1.name}`)
-        console.log(player1.ownedSpaces)
-        console.log(`${player2.name}`)
-        console.log(player2.ownedSpaces)
+        // console.log(`${player1.name} is on space ${player1.currentSpace}, ${player2.name} is on space ${player2.currentSpace}`)
+        // console.log(`${player1.name}`)
+        // console.log(player1.ownedSpaces)
+        // console.log(`${player2.name}`)
+        // console.log(player2.ownedSpaces)
+        console.log(playerStats.player1)
+        console.log(playerStats.player2)
     }
     console.log(`GAME OVER`)
 }
 
-gamePlay()
+// // object to store player stats
+// let playerStats = {
+//     player1: {
+//         name: player1.name,
+//         bankAmount: player1.bank,
+//         investmentList: player1.ownedSpaces,
+//         location: spaces[player1.currentSpace].name,
+//         character: player1.gamePiece
+//     },
+//     player2: {
+//         name: player2.name,
+//         bankAmount: player2.bank,
+//         investmentList: player2.ownedSpaces,
+//         location: player2.currentSpace,
+//         character: player2.gamePiece
+//     }
+// }
 
-// console.log(currentPlayer)
+gamePlay()
