@@ -39,32 +39,6 @@ const spaceGen = (numSpaces) => {
     }
 }
 
-// space action -- buy, rent, stay, jail, go....
-let spaceStatus = ''
-let investTypes = ['Property', 'Railroad']
-
-const spaceAction = (spaceNum) => {
-    if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go To Jail!')) {
-        spaceStatus = 'to jail'
-        console.log(spaceStatus)
-    }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail')) {
-        spaceStatus = 'in jail'
-        console.log(spaceStatus)
-    } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
-            spaceStatus = 'go'
-            console.log(spaceStatus)
-    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
-        spaceStatus = 'buy'
-        console.log(spaceStatus)
-    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === true)) {
-        spaceStatus = 'rent'
-        console.log(spaceStatus)
-    } else {
-        spaceStatus = 'rest'
-        console.log(spaceStatus)
-    }
-}
-
 // check if space can be invested in -- to be used with buying and renting spaces
 const investSpace = (spaceNum) => {
     // check if space type is property or railroad and that space is not currently owned -- user can invest if both are true
@@ -151,6 +125,45 @@ let allowance = 100
 const passGo = (player) => {
     player.bank += allowance
     console.log(`${player.name} passed go and collected ${allowance}.`)
+}
+
+// space action -- buy, rent, stay, jail, go....
+let spaceStatus = ''
+let investTypes = ['Property', 'Railroad']
+
+const spaceAction = (spaceNum, player) => {
+    if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go To Jail!')) {
+        spaceStatus = 'to jail'
+        console.log(spaceStatus)
+        // call goToJail()
+        goToJail(player)
+        console.log(player)
+    }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail')) {
+        spaceStatus = 'in jail'
+        console.log(spaceStatus)
+        // end turn **** need to set up skip turn function ****
+    } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
+            spaceStatus = 'go'
+            console.log(spaceStatus)
+            // call passGo()
+            passGo(player)
+            console.log(player)
+    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
+        spaceStatus = 'buy'
+        console.log(spaceStatus)
+        // call buySpace()
+        buySpace(spaceNum, player)
+        console.log(player)
+    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === true)) {
+        spaceStatus = 'rent'
+        console.log(spaceStatus)
+        // call chargeRent()
+        chargeRent(spaceNum, player)
+    } else {
+        spaceStatus = 'rest'
+        console.log(spaceStatus)
+        // end turn **** do I need an end turn function? ****
+    }
 }
 
 // ************************************* CLASSES ****************************************
