@@ -136,6 +136,14 @@ const goToJail = (player) => {
     console.log(`${player.name} was sent to ${spaces[gameboardSize / 4].name}`)
 }
 
+// pass go get allowance
+let allowance = 100
+
+const passGo = (player) => {
+    player.bank += allowance
+    console.log(`${player.name} passed go and collected ${allowance}.`)
+}
+
 // ************************************* CLASSES ****************************************
 
 // Player class
@@ -404,8 +412,9 @@ console.log(sam)
 
 spaceAction(testNum)
 
-goToJail(sam)
-console.log(sam)
+// goToJail(sam)
+passGo(sused)
+console.log(sused)
 
 
 
