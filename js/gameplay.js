@@ -39,19 +39,28 @@ const spaceGen = (numSpaces) => {
     }
 }
 
-// space action -- buy, rent, stay, jail, start....
+// space action -- buy, rent, stay, jail, go....
 let spaceStatus = ''
 let investTypes = ['Property', 'Railroad']
 
 const spaceAction = (spaceNum) => {
-    if (spaces[spaceNum].spaceType === 'Corner') {
-        spaceStatus = 'allowance, jail, or nothing'
+    if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go To Jail!')) {
+        spaceStatus = 'to jail'
         console.log(spaceStatus)
+    }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail')) {
+        spaceStatus = 'in jail'
+        console.log(spaceStatus)
+    } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
+            spaceStatus = 'go'
+            console.log(spaceStatus)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
         spaceStatus = 'buy'
         console.log(spaceStatus)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === true)) {
         spaceStatus = 'rent'
+        console.log(spaceStatus)
+    } else {
+        spaceStatus = 'rest'
         console.log(spaceStatus)
     }
 }
@@ -413,8 +422,8 @@ console.log(sam)
 spaceAction(testNum)
 
 // goToJail(sam)
-passGo(sused)
-console.log(sused)
+// passGo(sused)
+// console.log(sused)
 
 
 
