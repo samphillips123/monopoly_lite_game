@@ -149,8 +149,8 @@ const spaceAction = (spaceNum, player) => {
     } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
             spaceStatus = 'go'
             console.log(spaceStatus)
-            // call passGo()
-            passGo(player)
+            // // call passGo()
+            // passGo(player)
             // console.log(player)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
         spaceStatus = 'buy'
@@ -264,6 +264,8 @@ class Dice {
         // if statement to check if die result + current space is greater than gameboardSize
         if ((player.currentSpace + this.number) > (gameboardSize - 1)) { // (-1) is to convert to index number starting at 0
             player.currentSpace = (player.currentSpace += this.number) - gameboardSize
+            // player has passed go and collects allowance
+            passGo(player)
         } else {
         // Add result of die roll to the space # for player
         player.currentSpace += this.number
@@ -497,6 +499,7 @@ const gamePlay = () => {
         console.log(`${player2.name}`)
         console.log(player2.ownedSpaces)
     }
+    console.log(`GAME OVER`)
 }
 
 gamePlay()
