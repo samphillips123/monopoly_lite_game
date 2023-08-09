@@ -1,0 +1,14 @@
+{
+  "name": "monopoly_lite_game",
+  "version": "1.0.0",
+  "description": "monopoly game",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "author": "Samuel Phillips",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
