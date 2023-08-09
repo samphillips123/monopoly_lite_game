@@ -1,7 +1,7 @@
 /* style inspiration from https://codepen.io/jensimmons/pen/qRGRjO */
 
 body {
-    background-color: maroon;
+    background-color: white;
 }
 
 ul {
@@ -152,9 +152,9 @@ li:nth-child(24) {
     grid-column: 1;
 }
 
-$color-strip: 2vw;
+/* $color-strip: 2vw;
 $border-thickness: 4px;
-$color-border: calc(2vw + 4px);
+$color-border: calc(2vw + 4px); */
 
 li span {
     margin-top: 1.8rem;
@@ -178,10 +178,10 @@ li:nth-child(7) span {
     margin-top: 0;
 }
 
-li:nth-child(2),
+/* li:nth-child(2),
 li:nth-child(3) {
     background: linear-gradient(to bottom, indigo 0px, indigo $color-strip, black $color-strip, black $color-border, white $color-border, white 10vw);
-}
+} */
 
 li:nth-child(8),
 li:nth-child(9),
