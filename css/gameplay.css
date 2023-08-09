@@ -150,12 +150,17 @@ li:nth-child(24) {
     grid-column: 1;
 }
 
-$color-strip: 2vw;
+/* $color-strip: 2vw;
 $border-thickness: 4px;
-$color-border: calc(2vw + 4px);
+$color-border: calc(2vw + 4px); */
 
 li span {
     margin-top: 1.8rem;
+}
+
+li:nth-child(1) span {
+    transform: rotate(135deg);
+    margin-top: 0;
 }
 
 li:nth-child(2),
@@ -164,6 +169,11 @@ li:nth-child(4),
 li:nth-child(5),
 li:nth-child(6) {
     transform: rotate(180deg);
+}
+
+li:nth-child(7) span {
+    transform: rotate(225deg);
+    margin-top: 0;
 }
 
 /* li:nth-child(2),
@@ -179,6 +189,11 @@ li:nth-child(12) {
     transform: rotate(270deg);
 }
 
+li:nth-child(13) span {
+    transform: rotate(315deg);
+    margin-top: 0;
+}
+
 /* li:nth-child(14),
 li:nth-child(15),
 li:nth-child(16),
@@ -187,10 +202,20 @@ li:nth-child(18) {
     transform: rotate(90deg);
 } */
 
+li:nth-child(19) span {
+    transform: rotate(45deg);
+    margin-top: 0;
+}
+
 li:nth-child(20),
 li:nth-child(21),
 li:nth-child(22),
 li:nth-child(23),
 li:nth-child(24) {
     transform: rotate(90deg);
+}
+
+li:nth-child(13) span {
+    transform: rotate(315deg);
+    margin-top: 0;
 }
