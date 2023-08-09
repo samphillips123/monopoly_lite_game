@@ -149,3 +149,17 @@ li:nth-child(24) {
     grid-row: 2;
     grid-column: 1;
 }
+
+$color-strip: 2vw;
+$border-thickness: 4px;
+$color-border: calc(2vw + 4px);
+
+li span {
+    margin-top: 1.8rem;
+}
+
+li:nth-child(2),
+li:nth-child(3) {
+    transform: rotate(180deg);
+    background: linear-gradient(to bottom, indigo 0px, indigo $color-strip, black $color-strip, black $color-border, white $color-border, white 10vw);
+}
