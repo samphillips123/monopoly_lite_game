@@ -2,6 +2,7 @@
 
 body {
     background-color: white;
+    font-family: Avenir, Heveltica, sans-serif;
 }
 
 ul {
@@ -27,18 +28,19 @@ li {
     align-items: center;
     justify-content: center;
     width: 100%;
+
 }
 
 .invest {
     display: flex;
     flex-direction: column;
-    background-color: silver;
+    /* background-color: silver; */
 }
 
 .color-stripe {
     width: 100%;
     height: 25%;
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
     border-bottom: 4px solid black;
 }
 
@@ -190,6 +192,16 @@ li:nth-child(6) {
     transform: rotate(180deg);
 }
 
+li:nth-child(2) .color-stripe,
+li:nth-child(3) .color-stripe {
+    background-color: indigo;
+}
+
+li:nth-child(5) .color-stripe,
+li:nth-child(6) .color-stripe {
+    background-color: lightskyblue;
+}
+
 li:nth-child(7) span {
     transform: rotate(225deg);
     margin-top: 0;
@@ -202,6 +214,17 @@ li:nth-child(11),
 li:nth-child(12) {
     transform: rotate(270deg);
 }
+
+li:nth-child(8) .color-stripe,
+li:nth-child(9) .color-stripe {
+    background-color: maroon;
+}
+
+li:nth-child(11) .color-stripe,
+li:nth-child(12) .color-stripe {
+    background-color: orange;
+}
+
 
 li:nth-child(13) span {
     transform: rotate(315deg);
@@ -216,6 +239,17 @@ li:nth-child(18) {
     transform: rotate(0deg);
 }
 
+li:nth-child(14) .color-stripe,
+li:nth-child(15) .color-stripe {
+    background-color: red;
+}
+
+li:nth-child(17) .color-stripe,
+li:nth-child(18) .color-stripe {
+    background-color: gold;
+}
+
+
 li:nth-child(19) span {
     transform: rotate(45deg);
     margin-top: 0;
@@ -228,6 +262,17 @@ li:nth-child(23),
 li:nth-child(24) {
     transform: rotate(90deg);
 }
+
+li:nth-child(20) .color-stripe,
+li:nth-child(21) .color-stripe {
+    background-color: green;
+}
+
+li:nth-child(23) .color-stripe,
+li:nth-child(24) .color-stripe {
+    background-color: navy;
+}
+
 
 li:nth-child(13) span {
     transform: rotate(315deg);

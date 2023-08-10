@@ -299,13 +299,13 @@ const properties = [
     },
     {
         name: 'Hill Way',
-        groupColor: 'lightblue', 
+        groupColor: 'lightskyblue', 
         cost: 80,
         rent: 30,
     },
     {
         name: 'Jackson Ave.',
-        groupColor: 'lightblue', 
+        groupColor: 'lightskyblue', 
         cost: 100,
         rent: 35,
     },
@@ -347,13 +347,13 @@ const properties = [
     },
     {
         name: 'Flatlands Ave.',
-        groupColor: 'yellow', 
+        groupColor: 'gold', 
         cost: 260,
         rent: 160,
     },
     {
         name: 'Atlantic Ave.',
-        groupColor: 'yellow', 
+        groupColor: 'gold', 
         cost: 280,
         rent: 175,
     },
