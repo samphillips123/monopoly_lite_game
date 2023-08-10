@@ -3,6 +3,7 @@
 body {
     background-color: white;
     font-family: Avenir, Heveltica, sans-serif;
+    position: relative;
 }
 
 ul {
@@ -89,12 +90,9 @@ li {
     border: none;
 }
 
-.gamepiece {
+img {
+    position: absolute;
     z-index: 9;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
 }
 
 #player1, #player2 {
