@@ -376,7 +376,7 @@ const properties = [
         rent: 250,
     },
     {
-        name: 'Lombard Street',
+        name: 'Lombard St.',
         groupColor: 'navy', 
         cost: 400,
         rent: 250,
