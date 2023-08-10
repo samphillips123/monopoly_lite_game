@@ -1,5 +1,7 @@
 console.log('welcome to gameplay')
 
+window.onload = (e) => {
+
 // *************************** GLOBAL FUNCITONS AND VARIABLES ****************************
 
 // random number for die roll with min/max values set
@@ -522,4 +524,12 @@ const gamePlay = () => {
 //     }
 // }
 
+    document.querySelector('#start-button').addEventListener('click', (e) => {
+        // e.preventDefault()
+        gamePlay()
+    })
+
 // gamePlay()
+
+
+}
