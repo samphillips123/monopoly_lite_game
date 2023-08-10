@@ -84,6 +84,10 @@ li {
     /* outline: 1px solid; */
 }
 
+#die {
+    border: none;
+}
+
 li:nth-child(1) {
     grid-row: 1;
     grid-column: 1;
@@ -302,4 +306,9 @@ li:nth-child(24) .color-stripe {
 li:nth-child(13) span {
     transform: rotate(315deg);
     margin-top: 0;
+}
+
+li:nth-child(25) {
+    grid-row: 5;
+    grid-column: 5;
 }
