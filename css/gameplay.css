@@ -96,8 +96,21 @@ img {
 }
 
 #player1, #player2 {
-    transform: scale(.5);
+    transform: scale(0.2);
     height: 50%;
+}
+
+#title {
+    border: none;
+    transform: rotate(-25deg);
+}
+
+h1 {
+    font-size: calc(8vw);
+}
+
+h2 {
+    font-size: calc(3vw);
 }
 
 li:nth-child(1) {
@@ -323,4 +336,9 @@ li:nth-child(13) span {
 li:nth-child(25) {
     grid-row: 5;
     grid-column: 5;
+}
+
+li:nth-child(26) {
+    grid-row: 4;
+    grid-column: 4;
 }
