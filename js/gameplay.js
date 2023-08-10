@@ -501,23 +501,28 @@ const gamePlay = () => {
 
 }
 
+// function to run a game round
 const gameRound = () => {
-    if (currentPlayer.inJail === true) {
+    // check if player has enough money to continue
+    if (currentPlayer.bank < 0) {
+        alert(`${currentPlayer.name} does not have enough money to keep playing.`)
+        // need to set up GAME OVER page
+    } else if (currentPlayer.inJail === true) { // check if player is currently in jail
         alert(`${currentPlayer.name} is in jail. Turn skipped.`)
-            // swith .inJail back to false so they can play next turn
-            currentPlayer.inJail = false
-            // if player is in jail, they are skipped for 1 turn
-            otherPlayer(currentPlayer)
-    } else {
-        alert(`about to roll die`)
-            dice1.rollDie(currentPlayer)
-            // after turn is over, swith currentPlayer
-            otherPlayer(currentPlayer)
+        // swith .inJail back to false so they can play next turn
+        currentPlayer.inJail = false
+        // if player is in jail, they are skipped for 1 turn
+        otherPlayer(currentPlayer)
+    } else { // roll the die
+        alert(`${currentPlayer.name} is about to the roll die`)
+        dice1.rollDie(currentPlayer)
+        // after turn is over, swith currentPlayer
+        otherPlayer(currentPlayer)
     }
 }
 
 
-
+// event listener for click on die to initiate a game round.
 document.querySelector('#die-img').addEventListener('click', (e) => {
     e.preventDefault()
     gameRound()
