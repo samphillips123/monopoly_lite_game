@@ -28,7 +28,7 @@ body {
     background-color: whitesmoke;
 }
 
-.button{
+.home-button{
     padding: 0px 10px;
     font-size: 1.5rem;
     border-radius: 10px;
@@ -38,6 +38,11 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0px 50% 10px;
+}
+
+#die-button {
+    border: none;
+    appearance: none;
 }
 
 ul {

@@ -188,9 +188,9 @@ class Player {
     }
 }
 // create players
-const player1 = new Player('Sam', 'tophat')
+const player1 = new Player('Player 1', 'shoe')
 // console.log(playerTest)
-const player2 = new Player('Sused', 'shoe')
+const player2 = new Player('Player 2', 'tophat')
 
 // GameSpace class
 class GameSpace {
@@ -483,6 +483,7 @@ const otherPlayer = (player) => {
 
 // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
 const gamePlay = () => {
+    console.log('game has started')
     while (currentPlayer.bank >= 0) {
         if (currentPlayer.inJail === true) {
             console.log(`${currentPlayer.name} is in jail. Turn skipped.`)
@@ -491,45 +492,53 @@ const gamePlay = () => {
             // if player is in jail, they are skipped for 1 turn
             otherPlayer(currentPlayer)
         } else {
+                dice1.rollDie(currentPlayer)
+                // after turn is over, swith currentPlayer
+                otherPlayer(currentPlayer)
+        }
+}
+    console.log(`GAME OVER`)
+
+}
+
+const gameRound = () => {
+    if (currentPlayer.inJail === true) {
+        alert(`${currentPlayer.name} is in jail. Turn skipped.`)
+            // swith .inJail back to false so they can play next turn
+            currentPlayer.inJail = false
+            // if player is in jail, they are skipped for 1 turn
+            otherPlayer(currentPlayer)
+    } else {
+        alert(`about to roll die`)
             dice1.rollDie(currentPlayer)
             // after turn is over, swith currentPlayer
             otherPlayer(currentPlayer)
-        }
-        // console.log(`${player1.name} is on space ${player1.currentSpace}, ${player2.name} is on space ${player2.currentSpace}`)
-        // console.log(`${player1.name}`)
-        // console.log(player1.ownedSpaces)
-        // console.log(`${player2.name}`)
-        // console.log(player2.ownedSpaces)
-        // console.log(playerStats.player1)
-        // console.log(playerStats.player2)
     }
-    console.log(`GAME OVER`)
 }
 
-// // object to store player stats
-// let playerStats = {
-//     player1: {
-//         name: player1.name,
-//         bankAmount: player1.bank,
-//         investmentList: player1.ownedSpaces,
-//         location: spaces[player1.currentSpace].name,
-//         character: player1.gamePiece
-//     },
-//     player2: {
-//         name: player2.name,
-//         bankAmount: player2.bank,
-//         investmentList: player2.ownedSpaces,
-//         location: player2.currentSpace,
-//         character: player2.gamePiece
-//     }
-// }
 
-    document.querySelector('#start-button').addEventListener('click', (e) => {
-        // e.preventDefault()
-        gamePlay()
-    })
+
+document.querySelector('#die-img').addEventListener('click', (e) => {
+    e.preventDefault()
+    gameRound()
+})
+
+    // document.querySelector('#start-button').addEventListener('onClick', (e) => {
+    //     e.preventDefault()
+    //     location.replace('html/gameplay.html')
+    //     console.log('sent to gameplay')
+    //     gamePlay() 
+    // })
+
+
+    // document.querySelector('#die-img').addEventListener('click', (e) => {
+    //     e.preventDefault()
+    //     // console.log('sent to gameplay')
+    //     gamePlay() 
+    // })
 
 // gamePlay()
+
 
 
 }
