@@ -518,7 +518,7 @@ const gameRound = () => {
         // if player is in jail, they are skipped for 1 turn
         otherPlayer(currentPlayer)
     } else { // roll the die
-        alert(`${currentPlayer.name} is about to the roll die`)
+        // alert(`${currentPlayer.name} is about to the roll die`)
         dice1.rollDie(currentPlayer)
         // after turn is over, swith currentPlayer
         otherPlayer(currentPlayer)
