@@ -252,7 +252,7 @@ class Player {
     constructor(name, gamePiece, bank, ownedSpaces, currentSpace, inJail) {
         this.name = name;
         this.gamePiece = gamePiece;
-        this.bank = 1000;
+        this.bank = 1500;
         this.ownedSpaces = [];
         this.currentSpace = 0;
         this.inJail = false;
