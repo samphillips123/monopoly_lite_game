@@ -14,7 +14,6 @@ const randomDie = (min, max) => {
 
     return newDie
 }
-// console.log(randomDie(1,6))
 
 // Gameboard size
 const gameboardSize = 24
@@ -50,7 +49,6 @@ let spaces = []
 let j = 0
 let k = 0
 let l = 0
-// console.log(spaces)
 // For loop to create all space names
 const spaceGen = (numSpaces) => {
     for (let i = 0; i < numSpaces; i++) {
@@ -130,7 +128,6 @@ const buySpace = (spaceNum, player) => {
         }
     } else {
         console.log(`${player.name} cannot invest`)
-        // need to end turn
         // alert that you own cannot afford to buy property
         alert(`${player.name} landed on ${spaces[spaceNum].name} but cannot afford to buy it for $${spaces[spaceNum].cost}.`)
     }
@@ -213,9 +210,6 @@ const spaceAction = (spaceNum, player) => {
     } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
             spaceStatus = 'go'
             console.log(spaceStatus)
-            // // call passGo()
-            // passGo(player)
-            // console.log(player)
     } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === false)) {
         spaceStatus = 'buy'
         console.log(spaceStatus)
@@ -258,7 +252,6 @@ class Player {
 }
 // create players
 const player1 = new Player('Player-1', 'shoe')
-// console.log(playerTest)
 const player2 = new Player('Player-2', 'tophat')
 
 // GameSpace class
@@ -268,9 +261,6 @@ class GameSpace {
         this.spaceNum = spaceNum;
     }
 }
-// create test GameSpace
-// const gameSpaceTest = new GameSpace('property', true, 1)
-// console.log(gameSpaceTest)
 
 // extension for GameSpace -- Property
 class Property extends GameSpace {
@@ -286,9 +276,6 @@ class Property extends GameSpace {
         this.ownedBy = '';
     }
 }
-// create test property
-// const salinas = new Property('salinas', 1, 'blue', 35, 15)
-// console.log(salinas)
 
 // extension for GameSpace -- Railroad
 class Railroad extends GameSpace {
@@ -307,9 +294,6 @@ class Railroad extends GameSpace {
         this.ownedBy = '';
     }
 }
-// create test railroad
-// const marina = new Railroad('Marina', 3)
-// console.log(marina)
 
 // extension for GameSpace -- Corner
 class Corner extends GameSpace {
@@ -319,9 +303,6 @@ class Corner extends GameSpace {
         this.ownable = false;
     }
 }
-// create test corner
-// const go = new Corner('Go', 0)
-// console.log(go)
 
 // Dice class
 class Dice {
@@ -361,10 +342,6 @@ class Dice {
 }
 // create die
 const dice1 = new Dice()
-// console.log(`Initial die value: ${dice1.number}`)
-// dice1.rollDie(playerTest)
-// console.log(`Die value after roll: ${dice1.number}`)
-// console.log(playerTest)
 
 // Arrays with objects for various GameSpace types -- to be used during for loop to create spaces
 // Properties
@@ -536,8 +513,6 @@ console.log(spaces)
 // dice1.rollDie(player1)
 
 // console.log(spaces[testNum])
-// console.log(player1)
-// console.log(player2)
 
 // dice1.rollDie(player2)
 
@@ -562,26 +537,6 @@ const otherPlayer = (player) => {
         currentPlayer = player1
     }
 }
-
-// // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
-// const gamePlay = () => {
-//     console.log('game has started')
-//     while (currentPlayer.bank >= 0) {
-//         if (currentPlayer.inJail === true) {
-//             console.log(`${currentPlayer.name} is in jail. Turn skipped.`)
-//             // swith .inJail back to false so they can play next turn
-//             currentPlayer.inJail = false
-//             // if player is in jail, they are skipped for 1 turn
-//             otherPlayer(currentPlayer)
-//         } else {
-//                 dice1.rollDie(currentPlayer)
-//                 // after turn is over, swith currentPlayer
-//                 otherPlayer(currentPlayer)
-//         }
-// }
-//     console.log(`GAME OVER`)
-
-// }
 
 // function to run a game round
 const gameRound = () => {
