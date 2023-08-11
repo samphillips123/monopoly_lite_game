@@ -148,18 +148,22 @@ h2 {
 
 .stats {
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    border: none;
+}
+
+dd, dt {
+    text-align: left;
 }
 
 /* #Player-1-ownedSpaces, #Player-2-ownedSpaces {
     transform: rotate(none);
 } */
 
-/* .owned-properties {
-    transform: rotate(0deg);
-
-} */
+.owned-properties {
+    margin: 0;
+}
 
 li:nth-child(1) {
     grid-row: 1;

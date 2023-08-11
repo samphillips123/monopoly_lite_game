@@ -25,17 +25,17 @@ let nextSpace = ''
 // DOM update bank amount in stats
 const updateBankDOM = (player) => {
     let bankStat = document.querySelector(`#${player.name}-bank`)
-    bankStat.innerHTML = `Bank: $${player.bank}`
+    bankStat.innerHTML = `<strong>Bank: </strong>$${player.bank}`
 }
 
 // DOM add property to owned list in stats
 const updateOwnedDOM = (player, spaceNum) => {
     let ownedDT = document.querySelector(`#${player.name}-ownedSpaces`)
     // for (let i = 0; i < player.ownedSpaces.length; i++) {
-        let ownedDD = document.createElement('dd')
-        ownedDD.innerHTML = spaces[spaceNum].name
-        ownedDD.className = 'owned-properties'
-        ownedDT.appendChild(ownedDD)
+        let ownedP = document.createElement('p')
+        ownedP.innerHTML = spaces[spaceNum].name
+        ownedP.className = 'owned-properties'
+        ownedDT.appendChild(ownedP)
     // }
 }
 
