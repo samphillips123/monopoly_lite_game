@@ -123,6 +123,10 @@ li {
     border: none;
 }
 
+#die:hover {
+    animation: roll .5s 1 linear;
+}
+
 img {
     position: absolute;
     z-index: 9;
@@ -417,3 +421,15 @@ li:nth-child(30) {
     grid-row: 2;
     grid-column: 11;
 }
+
+/* animation */
+
+
+@keyframes roll {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
