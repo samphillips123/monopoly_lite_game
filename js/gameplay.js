@@ -104,9 +104,11 @@ const buySpace = (spaceNum, player) => {
     // check if user can invest in space and they have enough money
     if ((investSpace(spaceNum) === true) && (enoughMoney(player, spaces[spaceNum].cost) === true)) {
         // console.log('user can invest')
-        let buyResponse = prompt(`${player.name}, would you like to buy ${spaces[spaceNum].name} for $${spaces[spaceNum].cost}?`)
+        let buyResponse = prompt(`${player.name} has landed on ${spaces[spaceNum].name}. Would you like to buy it for $${spaces[spaceNum].cost}? (type: Yes / No)`)
         // console.log(buyResponse.toLowerCase())
         if (buyResponse.toLowerCase() === 'yes') {
+            // Alert that space was bought
+            alert(`${player.name} has bought ${spaces[spaceNum].name}. Rent will be $${spaces[spaceNum].rent} when other players land on the space.`)
             // initiate transaction
             transaction(houseAccount, player, spaceNum, 'cost')
             // change space owned to true
@@ -141,8 +143,12 @@ const chargeRent = (spaceNum, player) => {
             updateBankDOM(owner)
             // call function to update stats via DOM
             updateBankDOM(player)
+            // Alert that rent was paid
+            alert(`${player.name} has landed on ${spaces[spaceNum.name]} which is owned by ${owner}. You have paid them $${spaces[spaceNum].rent} for rent.`)
         } else {
         console.log(`${player.name} cannot afford rent`)
+        // Alert that player cannot afford rent
+        alert(`${player.name} has landed on ${spaces[spaceNum.name]} which is owned by ${owner}. You cannot afford the rent of $${spaces[spaceNum].rent}. ${player.name} lost!`)
         // initiate GAME OVER
         }
     }
@@ -154,6 +160,8 @@ const goToJail = (player) => {
     player.currentSpace = spaces[gameboardSize / 4].spaceNum
     // change player.inJail to true
     player.inJail = true
+    // Alert that player is sent to jail and will skip a turn
+    alert(`${player.name} has been sent to jail and will skip 1 turn.`)
     console.log(`${player.name} was sent to ${spaces[gameboardSize / 4].name}`)
 }
 
@@ -163,6 +171,8 @@ let allowance = 100
 const passGo = (player) => {
     player.bank += allowance
     console.log(`${player.name} passed go and collected ${allowance}.`)
+    // Alert that player passed go and collected an allowance.
+    alert(`${player.name} has passed go and collected $${allowance}.`)
     // call function to update stats via DOM
     updateBankDOM(player)
 }
@@ -180,9 +190,13 @@ const spaceAction = (spaceNum, player) => {
         // console.log(player)
     }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail') && (player.inJail === true)) {
         spaceStatus = 'in jail'
+        // Alert that player is in jail
+        alert(`${player.name} is in jail.`)
         console.log(spaceStatus)
     }  else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Jail') && (player.inJail === false)) {
         spaceStatus = 'visit jail'
+        // Alert that player is visiting jail
+        alert(`${player.name} is visiting jail.`)
         console.log(spaceStatus)
     } else if ((spaces[spaceNum].spaceType === 'Corner') && (spaces[spaceNum].name === 'Go')) {
             spaceStatus = 'go'
@@ -204,6 +218,8 @@ const spaceAction = (spaceNum, player) => {
         // console.log(player)
     } else {
         spaceStatus = 'rest'
+        // Alert that player is on free parking
+        alert(`${player.name} landed on Free Parking.`)
         console.log(spaceStatus)
     }
 }
