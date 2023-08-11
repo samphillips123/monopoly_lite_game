@@ -45,10 +45,10 @@ const updateOwnedDOM = (player, spaceNum) => {
 }
 
 // DOM game over updates
-const gameOverDOM = (player) => {
-    let whoLost = document.querySelector(`#who-lost`)
-    whoLost.innerHTML = `${currentPlayer.name} lost!`
+const gameOver = () => {
     location.replace('game_over.html')
+    // console.log(currentPlayer.name)
+    alert(`${currentPlayer.name} has lost! *** GAME OVER ***`)
 }
 
 // define empty array to house all spaces for spaceGen()
@@ -162,7 +162,7 @@ const chargeRent = (spaceNum, player) => {
         // Alert that player cannot afford rent
         alert(`${player.name} has landed on ${spaces[spaceNum].name} which is owned by ${spaces[spaceNum].ownedBy.name}. You cannot afford the rent of $${spaces[spaceNum].rent}. ${player.name} lost!`)
         // initiate GAME OVER
-        gameOverDOM(currentPlayer)
+        gameOver()
         }
     }
 }
@@ -552,7 +552,7 @@ const gameRound = () => {
     if (currentPlayer.bank < 0) {
         alert(`${currentPlayer.name} does not have enough money to keep playing.`)
         // GAME OVER page
-        gameOverDOM(currentPlayer.name)
+        gameOver()
     } else if (currentPlayer.inJail === true) { // check if player is currently in jail
         alert(`${currentPlayer.name} is in jail. Turn skipped.`)
         // swith .inJail back to false so they can play next turn

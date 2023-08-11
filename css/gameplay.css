@@ -33,7 +33,7 @@ body {
     border-radius: 7px;
 }
 
-#start-button {
+#start-button, #play-again-button {
     justify-content: center;
     align-items: center;
     margin: 0px 50% 10px;
