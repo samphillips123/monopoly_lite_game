@@ -487,48 +487,6 @@ const corners = [
 // Generate gameboard with 24 spaces
 spaceGen(gameboardSize)
 console.log(spaces)
-// console.log(spaces[1].spaceType)
-
-// investSpace(2)
-// let testNum = 5
-
-// spaces[testNum].owned = 'true'
-// buySpace(testNum, player2)
-
-// console.log(spaces[testNum])
-// console.log(player1)
-
-// transaction(houseAccount, player1, testNum, 'cost')
-// console.log(houseAccount)
-// console.log(player1)
-
-// transaction(player2, player1, testNum, 'rent')
-// console.log(player1)
-// console.log(player2)
-
-// console.log(enoughMoney(player1, 13))
-
-// chargeRent(testNum, player2)
-// console.log(player1.bank)
-// console.log(player2)
-
-// spaceAction(testNum, player1)
-
-// goToJail(player1)
-// passGo(player2)
-// console.log(player2)
-
-// dice1.rollDie(player1)
-
-// console.log(spaces[testNum])
-
-// dice1.rollDie(player2)
-
-// console.log(player1)
-// console.log(player2)
-
-// console.log(currentPlayer)
-// otherPlayer(currentPlayer)
 
 
 // *********************************** GAME OBJECT **************************************
@@ -574,22 +532,52 @@ document.querySelector('#die-img').addEventListener('click', (e) => {
     gameRound()
 })
 
-    // document.querySelector('#start-button').addEventListener('onClick', (e) => {
-    //     e.preventDefault()
-    //     location.replace('html/gameplay.html')
-    //     console.log('sent to gameplay')
-    //     gamePlay() 
-    // })
+
+// *********************************** TESTING **************************************
 
 
-    // document.querySelector('#die-img').addEventListener('click', (e) => {
-    //     e.preventDefault()
-    //     // console.log('sent to gameplay')
-    //     gamePlay() 
-    // })
+// console.log(spaces[1].spaceType)
 
-// gamePlay()
+// investSpace(2)
+// let testNum = 5
 
+// spaces[testNum].owned = 'true'
+// buySpace(testNum, player2)
+
+// console.log(spaces[testNum])
+// console.log(player1)
+
+// transaction(houseAccount, player1, testNum, 'cost')
+// console.log(houseAccount)
+// console.log(player1)
+
+// transaction(player2, player1, testNum, 'rent')
+// console.log(player1)
+// console.log(player2)
+
+// console.log(enoughMoney(player1, 13))
+
+// chargeRent(testNum, player2)
+// console.log(player1.bank)
+// console.log(player2)
+
+// spaceAction(testNum, player1)
+
+// goToJail(player1)
+// passGo(player2)
+// console.log(player2)
+
+// dice1.rollDie(player1)
+
+// console.log(spaces[testNum])
+
+// dice1.rollDie(player2)
+
+// console.log(player1)
+// console.log(player2)
+
+// console.log(currentPlayer)
+// otherPlayer(currentPlayer)
 
 
 }
