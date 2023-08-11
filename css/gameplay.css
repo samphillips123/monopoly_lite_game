@@ -134,7 +134,7 @@ img {
     z-index: 9;
 }
 
-#player1, #player2 {
+#Player-1, #Player-2 {
     transform: scale(0.2);
     height: 50%;
 }

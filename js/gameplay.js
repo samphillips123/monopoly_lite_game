@@ -13,6 +13,9 @@ const randomDie = (min, max) => {
 // Gameboard size
 const gameboardSize = 24
 
+// next space variable for DOM
+let nextSpace = ''
+
 // define empty array to house all spaces for spaceGen()
 let spaces = []
 let j = 0
@@ -188,9 +191,9 @@ class Player {
     }
 }
 // create players
-const player1 = new Player('Player 1', 'shoe')
+const player1 = new Player('Player-1', 'shoe')
 // console.log(playerTest)
-const player2 = new Player('Player 2', 'tophat')
+const player2 = new Player('Player-2', 'tophat')
 
 // GameSpace class
 class GameSpace {
@@ -265,12 +268,25 @@ class Dice {
         this.number = randomDie(1, 6)
         // if statement to check if die result + current space is greater than gameboardSize
         if ((player.currentSpace + this.number) > (gameboardSize - 1)) { // (-1) is to convert to index number starting at 0
-            player.currentSpace = (player.currentSpace += this.number) - gameboardSize
+            // player.currentSpace = (player.currentSpace += this.number) - gameboardSize
+            nextSpace = (player.currentSpace += this.number) - gameboardSize
+            // DOM to move gamepiece on html
+            let currentPlayerPiece = document.querySelector(`#${player.name}`)
+            let movePieceTo = document.querySelector(`#space${nextSpace}`)
+            movePieceTo.appendChild(currentPlayerPiece)
+
+            player.currentSpace = nextSpace
             // player has passed go and collects allowance
             passGo(player)
         } else {
         // Add result of die roll to the space # for player
-        player.currentSpace += this.number
+        // player.currentSpace += this.number
+            nextSpace = player.currentSpace + this.number
+            player.currentSpace = nextSpace
+            // DOM to move gamepiece on html
+            let currentPlayerPiece = document.querySelector(`#${player.name}`)
+            let movePieceTo = document.querySelector(`#space${nextSpace}`)
+            movePieceTo.appendChild(currentPlayerPiece)
         }
         console.log(`${player.name} has moved ${this.number} spaces, landing on space # ${player.currentSpace}.`)
         // call spaceAction()
