@@ -6,7 +6,13 @@ window.onload = (e) => {
 
 // random number for die roll with min/max values set
 const randomDie = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    let newDie = Math.floor(Math.random() * (max - min + 1) + min)
+
+    // let currentDie = document.querySelector('#die-img')
+    let dieImg = document.getElementById('die-img')
+    dieImg.src = `../img/dice${newDie}.png`
+
+    return newDie
 }
 // console.log(randomDie(1,6))
 
@@ -497,25 +503,25 @@ const otherPlayer = (player) => {
     }
 }
 
-// Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
-const gamePlay = () => {
-    console.log('game has started')
-    while (currentPlayer.bank >= 0) {
-        if (currentPlayer.inJail === true) {
-            console.log(`${currentPlayer.name} is in jail. Turn skipped.`)
-            // swith .inJail back to false so they can play next turn
-            currentPlayer.inJail = false
-            // if player is in jail, they are skipped for 1 turn
-            otherPlayer(currentPlayer)
-        } else {
-                dice1.rollDie(currentPlayer)
-                // after turn is over, swith currentPlayer
-                otherPlayer(currentPlayer)
-        }
-}
-    console.log(`GAME OVER`)
+// // Utilize while loop for gameplay -- Check that user has money, and that they aren't in jail -- this will allow them to play
+// const gamePlay = () => {
+//     console.log('game has started')
+//     while (currentPlayer.bank >= 0) {
+//         if (currentPlayer.inJail === true) {
+//             console.log(`${currentPlayer.name} is in jail. Turn skipped.`)
+//             // swith .inJail back to false so they can play next turn
+//             currentPlayer.inJail = false
+//             // if player is in jail, they are skipped for 1 turn
+//             otherPlayer(currentPlayer)
+//         } else {
+//                 dice1.rollDie(currentPlayer)
+//                 // after turn is over, swith currentPlayer
+//                 otherPlayer(currentPlayer)
+//         }
+// }
+//     console.log(`GAME OVER`)
 
-}
+// }
 
 // function to run a game round
 const gameRound = () => {
