@@ -22,6 +22,12 @@ const gameboardSize = 24
 // next space variable for DOM
 let nextSpace = ''
 
+// DOM update bank amount
+const updateBankDOM = (player) => {
+    let bankStat = document.querySelector(`#${player.name}-bank`)
+    bankStat.innerHTML = `Bank: $${player.bank}`
+}
+
 // define empty array to house all spaces for spaceGen()
 let spaces = []
 let j = 0
@@ -98,6 +104,8 @@ const buySpace = (spaceNum, player) => {
             spaces[spaceNum].ownedBy = player
             // push space name to players ownedSpaces array
             player.ownedSpaces.push(spaces[spaceNum].name)
+            // call function to update stats via DOM
+            updateBankDOM(player)
         }
     } else {
         console.log(`${player.name} cannot invest`)
@@ -116,6 +124,10 @@ const chargeRent = (spaceNum, player) => {
             let owner = spaces[spaceNum].ownedBy
             // call transaction() with owner of space and rent amount
             transaction(owner, player, spaceNum, 'rent')
+            // call function to update stats via DOM
+            updateBankDOM(owner)
+            // call function to update stats via DOM
+            updateBankDOM(player)
         } else {
         console.log(`${player.name} cannot afford rent`)
         // initiate GAME OVER
@@ -138,6 +150,8 @@ let allowance = 100
 const passGo = (player) => {
     player.bank += allowance
     console.log(`${player.name} passed go and collected ${allowance}.`)
+    // call function to update stats via DOM
+    updateBankDOM(player)
 }
 
 // space action -- buy, rent, stay, jail, go....

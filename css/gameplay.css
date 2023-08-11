@@ -24,14 +24,13 @@ body {
     min-width: 550px;
     width: 75vw;
     max-width: 750px;
-    /* max-height: 40vh; */
     background-color: whitesmoke;
 }
 
-.home-button{
+.button{
     padding: 0px 10px;
     font-size: 1.5rem;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 #start-button {
@@ -69,19 +68,16 @@ li {
     align-items: center;
     justify-content: center;
     width: 100%;
-
 }
 
 .invest {
     display: flex;
     flex-direction: column;
-    /* background-color: silver; */
 }
 
 .color-stripe {
     width: 100%;
     height: 25%;
-    /* background-color: lightskyblue; */
     border-bottom: 4px solid black;
 }
 
@@ -115,14 +111,12 @@ li {
     height: 60%;
     width: 100%;
     font-size: 1.5vh;
-    /* outline: 1px solid; */
 }
 
 .info-rail .cost {
     height: 30%;
     width: 100%;
     font-size: 1.5vh;
-    /* outline: 1px solid; */
 }
 
 #die {
