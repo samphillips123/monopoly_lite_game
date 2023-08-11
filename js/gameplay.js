@@ -131,6 +131,8 @@ const buySpace = (spaceNum, player) => {
     } else {
         console.log(`${player.name} cannot invest`)
         // need to end turn
+        // alert that you own cannot afford to buy property
+        alert(`${player.name} landed on ${spaces[spaceNum].name} but cannot afford to buy it for $${spaces[spaceNum].cost}.`)
     }
 }
 
