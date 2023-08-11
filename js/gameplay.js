@@ -22,10 +22,21 @@ const gameboardSize = 24
 // next space variable for DOM
 let nextSpace = ''
 
-// DOM update bank amount
+// DOM update bank amount in stats
 const updateBankDOM = (player) => {
     let bankStat = document.querySelector(`#${player.name}-bank`)
     bankStat.innerHTML = `Bank: $${player.bank}`
+}
+
+// DOM add property to owned list in stats
+const updateOwnedDOM = (player, spaceNum) => {
+    let ownedList = document.querySelector(`#${player.name}-ownedSpaces`)
+    // for (let i = 0; i < player.ownedSpaces.length; i++) {
+        let ownedLi = document.createElement('li')
+        ownedLi.innerHTML = spaces[spaceNum].name
+        ownedLi.className = 'owned-properties'
+        ownedList.appendChild(ownedLi)
+    // }
 }
 
 // define empty array to house all spaces for spaceGen()
@@ -106,6 +117,8 @@ const buySpace = (spaceNum, player) => {
             player.ownedSpaces.push(spaces[spaceNum].name)
             // call function to update stats via DOM
             updateBankDOM(player)
+            // call function to update property stats via DOM
+            updateOwnedDOM(player, spaceNum)
         }
     } else {
         console.log(`${player.name} cannot invest`)
