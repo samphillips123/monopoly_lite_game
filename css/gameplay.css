@@ -152,6 +152,15 @@ h2 {
     align-items: center;
 }
 
+/* #Player-1-ownedSpaces, #Player-2-ownedSpaces {
+    transform: rotate(none);
+} */
+
+/* .owned-properties {
+    transform: rotate(0deg);
+
+} */
+
 li:nth-child(1) {
     grid-row: 1;
     grid-column: 3;

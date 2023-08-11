@@ -30,12 +30,12 @@ const updateBankDOM = (player) => {
 
 // DOM add property to owned list in stats
 const updateOwnedDOM = (player, spaceNum) => {
-    let ownedList = document.querySelector(`#${player.name}-ownedSpaces`)
+    let ownedDT = document.querySelector(`#${player.name}-ownedSpaces`)
     // for (let i = 0; i < player.ownedSpaces.length; i++) {
-        let ownedLi = document.createElement('li')
-        ownedLi.innerHTML = spaces[spaceNum].name
-        ownedLi.className = 'owned-properties'
-        ownedList.appendChild(ownedLi)
+        let ownedDD = document.createElement('dd')
+        ownedDD.innerHTML = spaces[spaceNum].name
+        ownedDD.className = 'owned-properties'
+        ownedDT.appendChild(ownedDD)
     // }
 }
 
