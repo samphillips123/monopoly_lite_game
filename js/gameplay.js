@@ -22,6 +22,12 @@ const gameboardSize = 24
 // next space variable for DOM
 let nextSpace = ''
 
+// // DOM to move gamepiece on html
+// const updateSpaceDOM = (player)
+//     let currentPlayerPiece = document.querySelector(`#${player.name}`)
+//     let movePieceTo = document.querySelector(`#space${nextSpace}`)
+//     movePieceTo.appendChild(currentPlayerPiece)
+
 // DOM update bank amount in stats
 const updateBankDOM = (player) => {
     let bankStat = document.querySelector(`#${player.name}-bank`)
@@ -144,11 +150,11 @@ const chargeRent = (spaceNum, player) => {
             // call function to update stats via DOM
             updateBankDOM(player)
             // Alert that rent was paid
-            alert(`${player.name} has landed on ${spaces[spaceNum.name]} which is owned by ${owner}. You have paid them $${spaces[spaceNum].rent} for rent.`)
+            alert(`${player.name} has landed on ${spaces[spaceNum].name} which is owned by ${spaces[spaceNum].ownedBy.name}. You have paid them $${spaces[spaceNum].rent} for rent.`)
         } else {
         console.log(`${player.name} cannot afford rent`)
         // Alert that player cannot afford rent
-        alert(`${player.name} has landed on ${spaces[spaceNum.name]} which is owned by ${owner}. You cannot afford the rent of $${spaces[spaceNum].rent}. ${player.name} lost!`)
+        alert(`${player.name} has landed on ${spaces[spaceNum].name} which is owned by ${spaces[spaceNum].ownedBy.name}. You cannot afford the rent of $${spaces[spaceNum].rent}. ${player.name} lost!`)
         // initiate GAME OVER
         }
     }
@@ -158,6 +164,10 @@ const chargeRent = (spaceNum, player) => {
 const goToJail = (player) => {
     // jail is the 1st corner that's why it's the size / 4
     player.currentSpace = spaces[gameboardSize / 4].spaceNum
+    // DOM to move gamepiece on html
+    let currentPlayerPiece = document.querySelector(`#${player.name}`)
+    let movePieceTo = document.querySelector(`#space${player.currentSpace}`)
+    movePieceTo.appendChild(currentPlayerPiece)
     // change player.inJail to true
     player.inJail = true
     // Alert that player is sent to jail and will skip a turn
