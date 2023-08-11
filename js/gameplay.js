@@ -220,12 +220,17 @@ const spaceAction = (spaceNum, player) => {
         // call buySpace()
         buySpace(spaceNum, player)
         // console.log(player)
-    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].owned === true)) {
+    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].ownedBy.name != player.name)) {
         spaceStatus = 'rent'
         console.log(spaceStatus)
         // call chargeRent()
         chargeRent(spaceNum, player)
         // console.log(player)
+    } else if (investTypes.includes(spaces[spaceNum].spaceType) && (spaces[spaceNum].ownedBy.name === player.name)) {
+        spaceStatus = 'You own'
+        console.log(spaceStatus)
+        // alert that you own this property
+        alert(`You own ${spaces[spaceNum].name}, no rent charged.`)
     } else {
         spaceStatus = 'rest'
         // Alert that player is on free parking
