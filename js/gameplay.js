@@ -8,7 +8,7 @@ window.onload = (e) => {
 const randomDie = (min, max) => {
     let newDie = Math.floor(Math.random() * (max - min + 1) + min)
 
-    // let currentDie = document.querySelector('#die-img')
+    // Use DOM to update the src for the specific die image needed depending on the roll.
     let dieImg = document.getElementById('die-img')
     dieImg.src = `../img/dice${newDie}.png`
 
