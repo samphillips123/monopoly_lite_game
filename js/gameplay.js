@@ -489,7 +489,7 @@ spaceGen(gameboardSize)
 console.log(spaces)
 
 
-// *********************************** GAME OBJECT **************************************
+// *********************************** GAME PLAY **************************************
 
 
 // store currentPlayer -- Start with player1
